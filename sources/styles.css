@@ -1,0 +1,90 @@
+select {
+  font-family: "Lato";
+  width: 20%;
+  cursor: pointer;
+  padding: 10px 15px;
+  outline: 0;
+  border: 2px solid #ff5a60;
+  border-radius: 5px;
+  background: #fafafa;
+  color: #252522;
+}
+#selector-habitacion {
+  margin: 20px;
+}
+.card-habitacion {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 1020px;
+  height: 160px;
+  box-shadow: 1px 1px 11px rgba(0, 0, 0, 0.25);
+  background: #ffffff;
+  border-radius: 5px;
+  margin: 20px;
+}
+
+h1.nombre-habitacion {
+  font-family: "Lato", sans-serif;
+  font-weight: 500;
+  font-size: 22px;
+  color: #404040;
+  margin: 2px;
+}
+
+p.descripcion-habitacion {
+  font-family: "Lato", sans-serif;
+  font-size: 16px;
+  color: #404040;
+  margin: 2px;
+}
+
+.precio-habitacion {
+  width: 100px;
+  height: 100px;
+  margin: 1em;
+  text-align: center;
+}
+
+.precio {
+  font-family: "Lato", sans-serif;
+  font-weight: 600;
+  font-size: 35px;
+  color: #404040;
+  margin: 0;
+}
+.subtittle {
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  font-size: 15px;
+  color: #4d4646;
+  margin: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.img {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.imagenes-habitacion {
+  width: 140px;
+  height: 140px;
+  margin: 1em;
+}
+.iconos-box {
+  margin-top: 10px;
+}
+
+.iconos-box i {
+  margin: 5px;
+  font-size: 20px;
+  color: #ff5a60;
+}
