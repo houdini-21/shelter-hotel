@@ -151,7 +151,6 @@ input.noches-input {
   font-size: 16px;
 }
 
-
 .noches-text {
   font-family: "Cereal";
   font-weight: 400;
@@ -178,6 +177,9 @@ input.noches-input {
   background-color: #ffffff;
   color: #ff5a5f;
   transition: 200ms;
+}
+.btn-aceptar:focus {
+  outline: none;
 }
 
 input::-webkit-outer-spin-button,
