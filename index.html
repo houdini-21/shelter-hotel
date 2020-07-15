@@ -3,13 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./sources/fonts.css" type="text/css" />
+
     <link rel="stylesheet" href="./sources/styles.css" type="text/css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
-      rel="stylesheet"
-    />
     <link rel="stylesheet" href="./sources/icons/css/fontawesome.css" />
     <link rel="stylesheet" href="./sources/icons/css/regular.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./sources/favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./sources/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./sources/favicon/favicon-16x16.png" />
+    <link rel="manifest" href="./sources/favicon/site.webmanifest" />
     <title>Shelter</title>
   </head>
   <body>
@@ -17,7 +19,7 @@
       <section id="selector-habitacion">
         <div class="selector-habitacion">
           <select id="selector">
-            <option value="todos">Todas las habitaciones</option>
+            <option value="0">Todas las habitaciones</option>
             <option value="habitacion1">Habitacion Individual</option>
             <option value="habitacion2">Habitacion Doble</option>
             <option value="habitacion3">Habitacion Familiar</option>
@@ -33,48 +35,86 @@
             <div class="imagenes-habitacion">
               <img class="img" src="./sources/habitacion1.jpg" />
             </div>
+            <div class="contenedor-icon-data">
+              <div class="cantidad">
+                <div class="number-icon">
+                  <p>1</p>
+                  <i class="far fa-bed-alt"></i>
+                </div>
+                <p class="tittle-icon">Cama(s)</p>
+              </div>
+              <div class="cantidad">
+                <div class="number-icon">
+                  <p>1</p>
+                  <i class="far fa-toilet"></i>
+                </div>
+                <p class="tittle-icon">Baño(s)</p>
+              </div>
+            </div>
             <div class="datos-habitacion">
-              <h1 class="nombre-habitacion">Habitacion Individual</h1>
+              <h2 class="nombre-habitacion">Habitacion Individual</h2>
               <p class="descripcion-habitacion">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum
                 deleniti officia minus praesentium sapiente non dignissi
               </p>
               <div class="iconos-box">
                 <i class="far fa-wifi"></i>
-                <i class="far fa-bed"></i>
+                <i class="far fa-air-conditioner"></i>
                 <i class="far fa-shower"></i>
               </div>
             </div>
+            <div class="container-total-estadia">
+              <input type="number" class="noches-input" placeholder="1" />
+              <p class="noches-text">Noches</p>
+            </div>
             <div class="precio-habitacion">
-              <p class="subtittle up">Por</p>
               <h2 class="precio">$45</h2>
-              <p class="subtittle down">Noche</p>
+              <p class="subtittle">Por 1 Noche(s)</p>
+              <button type="button" class="btn-aceptar">Aceptar</button>
             </div>
           </div>
         </article>
-
         <article id="habitacion2" class="card">
           <div class="card-habitacion">
             <div class="imagenes-habitacion">
               <img class="img" src="./sources/habitacion2.jpg" />
             </div>
+            <div class="contenedor-icon-data">
+              <div class="cantidad">
+                <div class="number-icon">
+                  <p>2</p>
+                  <i class="far fa-bed-alt"></i>
+                </div>
+                <p class="tittle-icon">Cama(s)</p>
+              </div>
+              <div class="cantidad">
+                <div class="number-icon">
+                  <p>1</p>
+                  <i class="far fa-toilet"></i>
+                </div>
+                <p class="tittle-icon">Baño(s)</p>
+              </div>
+            </div>
             <div class="datos-habitacion">
-              <h1 class="nombre-habitacion">Habitacion Doble</h1>
+              <h2 class="nombre-habitacion">Habitacion Individual</h2>
               <p class="descripcion-habitacion">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum
                 deleniti officia minus praesentium sapiente non dignissi
               </p>
               <div class="iconos-box">
                 <i class="far fa-wifi"></i>
-                <i class="far fa-bed"></i>
-                <i class="far fa-bed"></i>
+                <i class="far fa-air-conditioner"></i>
                 <i class="far fa-shower"></i>
               </div>
             </div>
+            <div class="container-total-estadia">
+              <input type="number" class="noches-input" placeholder="1" />
+              <p class="noches-text">Noches</p>
+            </div>
             <div class="precio-habitacion">
-              <p class="subtittle up">Por</p>
               <h2 class="precio">$75</h2>
-              <p class="subtittle down">Noche</p>
+              <p class="subtittle">Por 1 Noche(s)</p>
+              <button type="button" class="btn-aceptar">Aceptar</button>
             </div>
           </div>
         </article>
@@ -83,23 +123,43 @@
             <div class="imagenes-habitacion">
               <img class="img" src="./sources/habitacion3.jpg" />
             </div>
+            <div class="contenedor-icon-data">
+              <div class="cantidad">
+                <div class="number-icon">
+                  <p>3</p>
+                  <i class="far fa-bed-alt"></i>
+                </div>
+                <p class="tittle-icon">Cama(s)</p>
+              </div>
+              <div class="cantidad">
+                <div class="number-icon">
+                  <p>2</p>
+                  <i class="far fa-toilet"></i>
+                </div>
+                <p class="tittle-icon">Baño(s)</p>
+              </div>
+            </div>
             <div class="datos-habitacion">
-              <h1 class="nombre-habitacion">Habitacion Familiar</h1>
+              <h2 class="nombre-habitacion">Habitacion Individual</h2>
               <p class="descripcion-habitacion">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum
                 deleniti officia minus praesentium sapiente non dignissi
               </p>
               <div class="iconos-box">
                 <i class="far fa-wifi"></i>
-                <i class="far fa-bed-alt"></i>
+                <i class="far fa-air-conditioner"></i>
                 <i class="far fa-shower"></i>
-                <i class="far fa-tv-alt"></i>
+                <i class="far fa-briefcase-medical"></i>
               </div>
             </div>
+            <div class="container-total-estadia">
+              <input type="number" class="noches-input" placeholder="1" />
+              <p class="noches-text">Noches</p>
+            </div>
             <div class="precio-habitacion">
-              <p class="subtittle up">Por</p>
               <h2 class="precio">$95</h2>
-              <p class="subtittle down">Noche</p>
+              <p class="subtittle">Por 1 Noche(s)</p>
+              <button type="button" class="btn-aceptar">Aceptar</button>
             </div>
           </div>
         </article>
@@ -108,50 +168,93 @@
             <div class="imagenes-habitacion">
               <img class="img" src="./sources/habitacion4.jpg" />
             </div>
+            <div class="contenedor-icon-data">
+              <div class="cantidad">
+                <div class="number-icon">
+                  <p>2</p>
+                  <i class="far fa-bed-alt"></i>
+                </div>
+                <p class="tittle-icon">Cama(s)</p>
+              </div>
+              <div class="cantidad">
+                <div class="number-icon">
+                  <p>1</p>
+                  <i class="far fa-toilet"></i>
+                </div>
+                <p class="tittle-icon">Baño(s)</p>
+              </div>
+            </div>
             <div class="datos-habitacion">
-              <h1 class="nombre-habitacion">Habitacion Gold</h1>
+              <h2 class="nombre-habitacion">Habitacion Gold</h2>
               <p class="descripcion-habitacion">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum
                 deleniti officia minus praesentium sapiente non dignissi
               </p>
               <div class="iconos-box">
                 <i class="far fa-wifi"></i>
-                <i class="far fa-bed-alt"></i>
+                <i class="far fa-utensils"></i>
                 <i class="far fa-air-conditioner"></i>
-                <i class="far fa-bath"></i>
+                <i class="far fa-shower"></i>
+                <i class="far fa-briefcase-medical"></i>
               </div>
             </div>
+            <div class="container-total-estadia">
+              <input type="number" class="noches-input" placeholder="1" />
+              <p class="noches-text">Noches</p>
+            </div>
             <div class="precio-habitacion">
-              <p class="subtittle up">Por</p>
               <h2 class="precio">$120</h2>
-              <p class="subtittle down">Noche</p>
+              <p class="subtittle">Por 1 Noche(s)</p>
+              <button type="button" class="btn-aceptar">Aceptar</button>
             </div>
           </div>
         </article>
+
         <article id="habitacion5" class="card">
           <div class="card-habitacion">
             <div class="imagenes-habitacion">
               <img class="img" src="./sources/habitacion5.jpg" />
             </div>
+            <div class="contenedor-icon-data">
+              <div class="cantidad">
+                <div class="number-icon">
+                  <p>2</p>
+                  <i class="far fa-bed-alt"></i>
+                </div>
+                <p class="tittle-icon">Cama(s)</p>
+              </div>
+              <div class="cantidad">
+                <div class="number-icon">
+                  <p>2</p>
+                  <i class="far fa-toilet"></i>
+                </div>
+                <p class="tittle-icon">Baño(s)</p>
+              </div>
+            </div>
             <div class="datos-habitacion">
-              <h1 class="nombre-habitacion">Habitacion VIP</h1>
+              <h2 class="nombre-habitacion">Habitacion VIP</h2>
               <p class="descripcion-habitacion">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum
                 deleniti officia minus praesentium sapiente non dignissi
               </p>
               <div class="iconos-box">
                 <i class="far fa-wifi"></i>
-                <i class="far fa-bed-alt"></i>
+                <i class="far fa-utensils"></i>
                 <i class="far fa-air-conditioner"></i>
+                <i class="far fa-shower"></i>
                 <i class="far fa-bath"></i>
-                <i class="far fa-hot-tub"></i>
                 <i class="far fa-tv-alt"></i>
+                <i class="far fa-briefcase-medical"></i>
               </div>
             </div>
+            <div class="container-total-estadia">
+              <input type="number" class="noches-input" placeholder="1" />
+              <p class="noches-text">Noches</p>
+            </div>
             <div class="precio-habitacion">
-              <p class="subtittle up">Por</p>
               <h2 class="precio">$150</h2>
-              <p class="subtittle down">Noche</p>
+              <p class="subtittle">Por 1 Noche(s)</p>
+              <button type="button" class="btn-aceptar">Aceptar</button>
             </div>
           </div>
         </article>

@@ -4,18 +4,15 @@ selector.addEventListener("change", valor);
 
 function valor() {
   const options = selector.value;
-  let ocultarDiv = document.querySelectorAll(".card");
-  for (i = 0; i < ocultarDiv.length; i++) {
-    const div = ocultarDiv[i];
-    if (options == "todos") {
-        div.classList.remove('hidden')
-      console.log("seleccionaste todas", div);
+  let cards = document.querySelectorAll(".card");
+  for (i = 0; i < cards.length; i++) {
+    const div = cards[i];
+    if (options === "0") {
+      div.classList.remove("hidden");
     } else {
-      if (div.id === options) {
-        div.classList.remove("hidden");
-      } else {
-        div.classList.add("hidden");
-      }
+      div.id === options
+        ? div.classList.remove("hidden")
+        : div.classList.add("hidden");
     }
   }
 }
