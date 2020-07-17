@@ -15,6 +15,23 @@ select {
 .datos-habitacion {
   width: 55%;
 }
+.datos-habitacion {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.disponible-tag {
+  margin: 0;
+  font-size: 12px;
+  margin-left: 1em;
+  color: #fafafa;
+  background-color: #ff5a5f;
+  padding: 5px;
+  font-family: "Cereal";
+  font-weight: 400;
+  border-radius: 5px;
+}
 
 .canti-bed-bath,
 .cantidad,
@@ -189,7 +206,7 @@ input:focus, button.btn-estadia:focus {
   outline: none;
 }
 
-.btn-estadia {
+.plus.btn-estadia {
   height: 35px;
   width: 35px;
   background: #ffffff;
@@ -213,3 +230,6 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
+
+.container-total-estadia 
