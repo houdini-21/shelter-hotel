@@ -62,7 +62,6 @@ function habitacion() {
     const div = cards[i];
     const estadia = estadiabox[i];
     ocultarMostrarHabitacionYbtn(options, div, estadia);
-    reset(div)
   }
 }
 
