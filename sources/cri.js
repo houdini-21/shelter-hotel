@@ -4,6 +4,7 @@ selector.addEventListener("change", valor);
 let habitacionTemp = "";
 let result = "";
 let input = 1;
+let resultadoico = "";
 
 function valor() {
   const options = selector.value;
@@ -15,22 +16,22 @@ function valor() {
     options === "0"
       ? (div.classList.remove("hidden"),
         estadia.classList.add("hidden"),
-        (reset(i)))
+        reset(i))
       : div.id === options
       ? (div.classList.remove("hidden"),
         estadia.classList.remove("hidden"),
-        (reset(i)))
+        reset(i))
       : (div.classList.add("hidden"),
         estadia.classList.add("hidden"),
-        (reset(i)));
+        reset(i));
   }
 }
 
-template.forEach((card) => {
-  generadorTemplate(card);
+template.forEach((card, l) => {
+  generadorTemplate(card, l);
 });
 
-function generadorTemplate(cards) {
+function generadorTemplate(cards, p) {
   habitacionTemp = `<article id="${cards.id}" class="card">
   <div class="card-habitacion">
     <div class="imagenes-habitacion">
@@ -58,7 +59,8 @@ function generadorTemplate(cards) {
       <p class="descripcion-habitacion">
         ${cards.description}
       </p>
-      <div class="iconos-box">
+      <div class="iconos-box" id='box-icon'>
+      ${cards.icons}
       </div>
     </div>
     <div class="container-total-estadia hidden">
@@ -113,12 +115,12 @@ function resta(res, d) {
 
   calcularPrecio(input, d);
 }
-function reset(i){
+function reset(i) {
   input = 1;
   inputnoches[i].value = input;
   numeronoches[i].innerText = `Por Noche`;
   let resetprecio = precio[i].id;
-  precio[i].innerText = `$${resetprecio}`
+  precio[i].innerText = `$${resetprecio}`;
 }
 
 function suma(sum, o) {
@@ -131,6 +133,6 @@ function suma(sum, o) {
 function calcularPrecio(noches, uid) {
   let precioHabitacion = precio[uid].id;
   let total = noches * precioHabitacion;
-  precio[uid].innerText = `$${total}`
+  precio[uid].innerText = `$${total}`;
 }
 

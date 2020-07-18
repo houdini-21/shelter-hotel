@@ -52,7 +52,29 @@ function typing(cont, nu) {
   } else {
     precio[ideArray].innerText = `$${total}`;
   }
+
 }
+
+
+let array = [
+  {futbol: true, basquet: false, golf: true},
+  {futbol: true, basquet: false, golf: false}, 
+  {futbol: true, basquet: true, golf: true}]
+
+let newArray = [];
+
+for(let item of array){
+  const keysItem = Object.keys(item);
+  const keysTrue = keysItem.filter(key => item[key])
+  newArray.push(keysTrue);
+}
+
+console.log(newArray)
+
+
+
+
+
 
 function habitacion() {
   const options = selector.value;

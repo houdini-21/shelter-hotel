@@ -1,3 +1,8 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 select {
   font-family: "Cereal";
   width: 20%;
@@ -8,7 +13,20 @@ select {
   border-radius: 5px;
   background: #fafafa;
   color: #404040;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
+select::-ms-expand {
+  display: none; 
+}
+select:hover {
+  transition: 400ms;
+  color: #fafafa;
+  background-color: #ff5a5f;
+}
+
+
 #selector-habitacion {
   margin: 20px;
 }
@@ -157,19 +175,43 @@ p.descripcion-habitacion {
 }
 
 input.noches-input {
-  height: 35px;
+  height: 36px;
   width: 35px;
   background: #ffffff;
-  border: 2px solid #ff5a5f;
-  box-sizing: border-box;
+  border: 1px solid #ff5a5f;
   border-radius: 5px;
   font-family: "Cereal";
   text-align: center;
   font-weight: 400;
   color: #ff5a5f;
   font-size: 16px;
-  margin-top: 5px;
 }
+
+.btn-estadia {
+  height: 35px;
+  width: 35px;
+  background: #ff5a5f;
+  border: 1px solid #ff5a5f;
+  box-sizing: border-box;
+  border-radius: 5px;
+  font-family: "Cereal";
+  text-align: center;
+  font-weight: 400;
+  color: #fafafa;
+  font-size: 16px;
+  background-position: center;
+  transition: background 0.4s;
+  cursor: pointer;
+}
+.btn-estadia:hover {
+  background: #ff6f73 radial-gradient(circle, transparent 1%, #ff5a5f 1%) center/15000%;
+}
+.btn-estadia:active {
+  background-color: #ff5a5f;
+  background-size: 100%;
+  transition: background 0s;
+}
+
 input:focus, button.btn-estadia:focus {
   outline: none !important;
   outline: none !important;
@@ -194,6 +236,7 @@ input:focus, button.btn-estadia:focus {
   border: none;
   margin: 10px;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .btn-aceptar:hover {
@@ -206,25 +249,15 @@ input:focus, button.btn-estadia:focus {
   outline: none;
 }
 
-.plus.btn-estadia {
+.plus-minus {
   height: 35px;
-  width: 35px;
-  background: #ffffff;
+  width: 105px;
+  background-color: #ff5a5f;
   border: 2px solid #ff5a5f;
-  box-sizing: border-box;
   border-radius: 5px;
-  font-family: "Cereal";
-  text-align: center;
-  font-weight: 400;
-  color: #ff5a5f;
-  font-size: 20px;
-  margin-top: 5px;
 }
-.btn-estadia:hover{
-  background: #ff5a5f;
-  color: #fafafa;
-  transition: 200ms;
-}
+
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -232,4 +265,3 @@ input::-webkit-inner-spin-button {
 }
 
 
-.container-total-estadia 
