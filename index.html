@@ -43,68 +43,50 @@
         </div>
       </section>
 
-      <!--
-                <div id="myModal" class="modal">
+      <div id="myModal" class="modal hidden">
         <div class="modal-container">
           <div class="exit-btn">
-            <i class='far fa-times' id='cerrar'></i>
+            <i class="far fa-times" id="cerrar"></i>
           </div>
           <div class="tittle">
             <h2 class="titulo-modal">Detalles Habitacion</h2>
           </div>
           <div class="container-habitacion-detalles-img">
-            <div class="imagen-habitacion-modal">
-              <img
-                class="img-habitacion-modal"
-                src="./sources/habitacion1.jpg"
-              />
+            <div class="imagen-habitacion-modal" id="imagen-modal">
             </div>
             <div class="detalles-habitacion-modal">
               <p class="detalles-habitacion-p">
                 Habitacion:
-                <span class="detalles-habitacion-p-content">Individual</span>
+                <span class="detalles-habitacion-p-content" id="name-modal"></span>
               </p>
               <p class="detalles-habitacion-p">
                 Descripcion:
                 <span class="detalles-habitacion-p-content"
-                  >Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Deleniti, architecto consequatur.</span
+                  id="description-modal"></span
                 >
               </p>
               <p class="detalles-habitacion-p">
                 Precio:
-                <span class="detalles-habitacion-p-content">$45 Por Noche</span>
+                <span class="detalles-habitacion-p-content" id="precio-modal"></span>
               </p>
               <p class="detalles-habitacion-p">
                 Estadia:
-                <span class="detalles-habitacion-p-content">5 Noches</span>
+                <span class="detalles-habitacion-p-content" id="noches-modal"></span>
               </p>
               <p class="detalles-habitacion-p">
                 Total:
                 <span class="detalles-habitacion-p-content"
-                  >$225 Por 5 Noches</span
+                  id="total-modal"></span
                 >
               </p>
             </div>
             <div class="incluye-habitacion">
               <p class="detalles-habitacion-p">Incluye:</p>
-              <div class="iconos-incluye">
-                <i class="far fa-wifi" id="incluido-icon">
-                  <span class="incluye-habitacion-p-content">Wi-fi</span></i
-                >
-                <i class="far fa-air-conditioner" id="incluido-icon">
-                  <span class="incluye-habitacion-p-content"
-                    >Aire Acondicionado</span
-                  ></i
-                >
-                <i class="far fa-shower" id="incluido-icon">
-                  <span class="incluye-habitacion-p-content"
-                    >Ducha agua caliente/helado</span
-                  ></i
-                >
+              <div class="iconos-incluye" id="iconos-modal">
               </div>
             </div>
           </div>
+
           <div class="tittle">
             <h2 class="titulo-modal-formulario">Formulario</h2>
           </div>
@@ -124,7 +106,7 @@
                 </label>
               </div>
               <div class="form">
-                <input type="email" name="name" autocomplete="off" required />
+                <input type="text" name="name" autocomplete="off" required />
                 <label for="name" class="label-name">
                   <span class="content-name">Email</span>
                 </label>
@@ -158,9 +140,6 @@
         </div>
       </div>
 
-      -->
-      
-      
       <section id="habitaciones"></section>
     </main>
   </body>

@@ -1,11 +1,10 @@
 const selector = document.getElementById("selector");
-
-selector.addEventListener("change", valor);
 let habitacionTemp = "";
 let result = "";
 let input = 1;
-let resultadoico = "";
-let modalcard = "";
+let total;
+
+selector.addEventListener("change", valor);
 
 function valor() {
   const options = selector.value;
@@ -93,135 +92,44 @@ btnRestar = document.querySelectorAll("#restar");
 inputnoches = document.querySelectorAll(".noches-input");
 precio = document.querySelectorAll(".precio");
 numeronoches = document.querySelectorAll(".subtittle");
-
+cerrar = document.getElementById("cerrar");
+modal = document.getElementById("myModal");
 btnAceptar = document.querySelectorAll(".btn-aceptar");
+imagenModal = document.getElementById("imagen-modal");
+nombreModal = document.getElementById("name-modal");
+descripcionModal = document.getElementById("description-modal");
+precioModal = document.getElementById("precio-modal");
+estadiaModal = document.getElementById("noches-modal");
+totalModal = document.getElementById("total-modal");
+iconosModal = document.getElementById("iconos-modal");
+reservado = document.getElementById('reservado')
+
+reservado.addEventListener('click', () => {
+  alert('click')
+})
+
+function mostrarmodal(e) {
+  const modaltemp = template[e];
+  modal.classList.remove("hidden");
+  imagenModal.innerHTML = `<img class='img-habitacion-modal' src="${modaltemp.img}">`;
+  nombreModal.innerText = `${modaltemp.name}`;
+  descripcionModal.innerText = `${modaltemp.description}`;
+  precioModal.innerText = `$${modaltemp.price}`;
+  if (input != 1) {
+    estadiaModal.innerText = `${input} Noches`;
+    totalModal.innerText = `$${total} Por ${input} noches`;
+  } else {
+    estadiaModal.innerText = `1 Noche`;
+    totalModal.innerText = `$${modaltemp.price} Por Noche`;
+  }
+  iconosModal.innerHTML = `${modaltemp.icons}`;
+}
 
 btnAceptar.forEach((btnaceptar, j) => {
   btnaceptar.addEventListener("click", () => {
     mostrarmodal(j);
   });
 });
-function mostrarmodal(j) {
-  const modalcardsdata = template[j];
-
-  modalcard = `<div id="myModal" class="modal">
-  <div class="modal-container">
-    <div class="exit-btn">
-      <i class='far fa-times' id='cerrar'></i>
-    </div>
-    <div class="tittle">
-      <h2 class="titulo-modal">Detalles Habitacion</h2>
-    </div>
-    <div class="container-habitacion-detalles-img">
-      <div class="imagen-habitacion-modal">
-        <img
-          class="img-habitacion-modal"
-          src="${modalcardsdata.img}"
-        />
-      </div>
-      <div class="detalles-habitacion-modal">
-        <p class="detalles-habitacion-p">
-          Habitacion:
-          <span class="detalles-habitacion-p-content">Individual</span>
-        </p>
-        <p class="detalles-habitacion-p">
-          Descripcion:
-          <span class="detalles-habitacion-p-content"
-            >Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Deleniti, architecto consequatur.</span
-          >
-        </p>
-        <p class="detalles-habitacion-p">
-          Precio:
-          <span class="detalles-habitacion-p-content">$45 Por Noche</span>
-        </p>
-        <p class="detalles-habitacion-p">
-          Estadia:
-          <span class="detalles-habitacion-p-content">5 Noches</span>
-        </p>
-        <p class="detalles-habitacion-p">
-          Total:
-          <span class="detalles-habitacion-p-content"
-            >$225 Por 5 Noches</span
-          >
-        </p>
-      </div>
-      <div class="incluye-habitacion">
-        <p class="detalles-habitacion-p">Incluye:</p>
-        <div class="iconos-incluye">
-          <i class="far fa-wifi" id="incluido-icon">
-            <span class="incluye-habitacion-p-content">Wi-fi</span></i
-          >
-          <i class="far fa-air-conditioner" id="incluido-icon">
-            <span class="incluye-habitacion-p-content"
-              >Aire Acondicionado</span
-            ></i
-          >
-          <i class="far fa-shower" id="incluido-icon">
-            <span class="incluye-habitacion-p-content"
-              >Ducha agua caliente/helado</span
-            ></i
-          >
-        </div>
-      </div>
-    </div>
-    <div class="tittle">
-      <h2 class="titulo-modal-formulario">Formulario</h2>
-    </div>
-    <div class="formulario-habitacion-modal">
-      <form class="formulario-reserva">
-        <div class="form">
-          <input type="text" name="name" autocomplete="off" required />
-          <label for="name" class="label-name">
-            <span class="content-name">Nombre</span>
-          </label>
-        </div>
-
-        <div class="form">
-          <input type="text" name="name" autocomplete="off" required />
-          <label for="name" class="label-name">
-            <span class="content-name">Apellido</span>
-          </label>
-        </div>
-        <div class="form">
-          <input type="email" name="name" autocomplete="off" required />
-          <label for="name" class="label-name">
-            <span class="content-name">Email</span>
-          </label>
-        </div>
-
-        <div class="form">
-          <input type="number" name="name" autocomplete="off" required />
-          <label for="name" class="label-name">
-            <span class="content-name">Telefono</span>
-          </label>
-        </div>
-        <div class="form-date">
-          <input type="date" name="name" autocomplete="off" required />
-          <label for="name" class="label-name">
-            <span class="content-name">Fecha inicio</span>
-          </label>
-        </div>
-        <div class="form">
-          <input type="number" name="name" autocomplete="off" required />
-          <label for="name" class="label-name">
-            <span class="content-name">Cantidad personas</span>
-          </label>
-        </div>
-      </form>
-    </div>
-    <div class="box-btn">
-      <button type="submit" id="reservado" class="btn-reservacion">
-        Aceptar
-      </button>
-    </div>
-  </div>
-</div>
-`;
-  document.body.innerHTML = modalcard;
-}
-cerrar = document.getElementById("cerrar");
-modal = document.getElementById("myModal");
 
 btnRestar.forEach((btnres, u) => {
   btnres.addEventListener("click", () => {
@@ -266,6 +174,6 @@ function suma(o) {
 
 function calcularPrecio(noches, uid) {
   let precioHabitacion = precio[uid].id;
-  let total = noches * precioHabitacion;
+  total = noches * precioHabitacion;
   precio[uid].innerText = `$${total}`;
 }

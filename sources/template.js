@@ -8,7 +8,8 @@ const template = [
     price: 45,
     cantCamas: 1,
     cantPersonas: 1,
-    icons: '<i class="far fa-wifi"></i><i class="far fa-air-conditioner"></i> <i class="far fa-shower"></i><i class="far fa-tv"></i>',
+    icons:
+      '<i class="far fa-wifi"></i><i class="far fa-air-conditioner"></i> <i class="far fa-shower"></i><i class="far fa-tv"></i>',
     disponible: 19,
   },
   {
@@ -20,8 +21,8 @@ const template = [
     price: 75,
     cantCamas: 2,
     cantPersonas: 2,
-    icons: '<i class="far fa-wifi"></i><i class="far fa-air-conditioner"></i> <i class="far fa-shower"></i><i class="far fa-tv"></i>',
-
+    icons:
+      '<i class="far fa-wifi"></i><i class="far fa-air-conditioner"></i> <i class="far fa-shower"></i><i class="far fa-tv"></i>',
     disponible: 90,
   },
   {
@@ -48,7 +49,6 @@ const template = [
     cantPersonas: 2,
     icons:
       '<i class="far fa-wifi"></i> <i class="far fa-utensils"></i><i class="far fa-air-conditioner"></i><i class="far fa-bath"></i><i class="far fa-tv"></i>',
-
     disponible: 20,
   },
   {
