@@ -8,18 +8,12 @@ const template = [
     price: 45,
     cantCamas: 1,
     cantPersonas: 1,
-    icons:
-    [
-      'wifi',
-      'air-conditioner',
-      'shower',
-      'tv'
-    ],
+    icons: ["wifi", "air-conditioner", "shower", "tv"],
     incluido: [
-      'Wifi gratis',
-      'Aire acondicionado',
-      'Ducha agua helada/caliente',
-      'Televisor',
+      "Wifi",
+      "Aire acondicionado",
+      "Ducha agua helada/caliente",
+      "Televisor",
     ],
     disponible: 19,
   },
@@ -32,18 +26,12 @@ const template = [
     price: 75,
     cantCamas: 2,
     cantPersonas: 2,
-    icons:
-    [
-      'wifi',
-      'air-conditioner',
-      'shower',
-      'tv'
-    ],
+    icons: ["wifi", "air-conditioner", "shower", "tv"],
     incluido: [
-      'Wifi gratis',
-      'Aire acondicionado',
-      'Ducha agua helada/caliente',
-      'Televisor',
+      "Wifi",
+      "Aire acondicionado",
+      "Ducha agua helada/caliente",
+      "Televisor",
     ],
     disponible: 90,
   },
@@ -56,18 +44,12 @@ const template = [
     price: 95,
     cantCamas: 3,
     cantPersonas: 6,
-    icons:
-     [
-       'wifi',
-       'air-conditioner',
-       'shower',
-       'tv'
-     ],
-     incluido: [
-      'Wifi gratis',
-      'Aire acondicionado',
-      'Ducha agua helada/caliente',
-      'Televisor',
+    icons: ["wifi", "air-conditioner", "shower", "tv"],
+    incluido: [
+      "Wifi",
+      "Aire acondicionado",
+      "Ducha agua helada/caliente",
+      "Televisor",
     ],
     disponible: 10,
   },
@@ -80,15 +62,15 @@ const template = [
     price: 120,
     cantCamas: 2,
     cantPersonas: 2,
-    icons:
-     [
-       'wifi',
-       'air-conditioner',
-       'utensils',
-       'shower',
-       'bath',
-       'tv',
-     ],
+    icons: ["wifi", "air-conditioner", "utensils", "shower", "bath", "tv"],
+    incluido: [
+      "Wifi",
+      "Aire acondicionado",
+      "Desayuno",
+      "Ducha agua caliente/helada",
+      "Bañera",
+      "Television",
+    ],
     disponible: 20,
   },
   {
@@ -100,24 +82,23 @@ const template = [
     price: 150,
     cantCamas: 2,
     cantPersonas: 2,
-    icons:
-    [
-      'wifi',
-      'air-conditioner',
-      'utensils',
-      'shower',
-      'bath',
-      'tv',
-      'hot-tub'
+    icons: [
+      "wifi",
+      "air-conditioner",
+      "utensils",
+      "shower",
+      "bath",
+      "tv",
+      "hot-tub",
     ],
     incluido: [
-      'Wifi gratis',
-      'Aire acondicionado',
-      'Desayuno',
-      'Ducha agua helada/caliente',
-      'Banera',
-      'Televisor',
-      'Yacuzzi'
+      "Wifi",
+      "Aire acondicionado",
+      "Desayuno",
+      "Ducha agua helada/caliente",
+      "Bañera",
+      "Televisor",
+      "Jacuzzi",
     ],
     disponible: 10,
   },

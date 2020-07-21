@@ -10,7 +10,6 @@ template.forEach((card, n) => {
   generadorTemplate(card, n);
 });
 
-
 function generadorTemplate(cards) {
   let iconos = iconosgenerador(cards.icons);
   habitacionTemp = `<article id="${cards.id}" class="card">
@@ -69,19 +68,57 @@ function generadorTemplate(cards) {
 }
 
 const inputnoches = document.querySelectorAll(".noches-input");
-const precio = document.querySelectorAll(".precio");
-const numeronoches = document.querySelectorAll(".subtittle");
-
-
-const reservado = document.getElementById("reservado");
+precio = document.querySelectorAll(".precio");
+numeronoches = document.querySelectorAll(".subtittle");
+btnreservado = document.getElementById("reservado");
+btnRestar = document.querySelectorAll("#restar");
+btnSumar = document.querySelectorAll("#sumar");
 nombre = document.getElementById("form-nombre");
 apellido = document.getElementById("form-apellido");
 email = document.getElementById("form-email");
 telefono = document.getElementById("form-telefono");
 fecha = document.getElementById("form-fecha");
 cantpersonas = document.getElementById("form-people");
+containerReservacion = document.getElementById("reservacion-container");
+containerReservacionFinalizada = document.getElementById("reservacion-terminada");
+imagenModal = document.getElementById("imagen-modal");
+nombreModal = document.getElementById("name-modal");
+descripcionModal = document.getElementById("description-modal");
+precioModal = document.getElementById("precio-modal");
+estadiaModal = document.getElementById("noches-modal");
+totalModal = document.getElementById("total-modal");
+iconosModal = document.getElementById("iconos-modal");
+btnAceptar = document.querySelectorAll(".btn-aceptar");
+btncerrar = document.getElementById("cerrar");
+modal = document.getElementById("myModal");
 
-reservado.addEventListener("click", () => {
+
+btnAceptar.forEach((btnaceptar, n) => {
+  btnaceptar.addEventListener("click", () => {
+    containerReservacion.classList.remove("hidden");
+    containerReservacionFinalizada.classList.add("hidden");
+    mostrarmodal(n);
+  });
+});
+
+btnRestar.forEach((btnres, n) => {
+  btnres.addEventListener("click", () => {
+    resta(n);
+  });
+});
+
+btnSumar.forEach((btnsum, n) => {
+  btnsum.addEventListener("click", () => {
+    suma(n);
+  });
+});
+
+btncerrar.addEventListener("click", () => {
+  modal.classList.add("hidden");
+  limpiarcampos();
+});
+
+btnreservado.addEventListener("click", () => {
   if (
     nombre.value === "" ||
     apellido.value === "" ||
@@ -92,37 +129,10 @@ reservado.addEventListener("click", () => {
   ) {
     alert("Ningun campo puede quedar vacio");
   } else {
-    alert("reservacion hecha con exito");
+    containerReservacion.classList.add("hidden");
+    containerReservacionFinalizada.classList.replace("hidden", "fadeIn");
     limpiarcampos();
   }
-});
-
-const btnAceptar = document.querySelectorAll(".btn-aceptar");
-btnAceptar.forEach((btnaceptar, n) => {
-  btnaceptar.addEventListener("click", () => {
-    mostrarmodal(n);
-  });
-});
-
-const btnRestar = document.querySelectorAll("#restar");
-btnRestar.forEach((btnres, n) => {
-  btnres.addEventListener("click", () => {
-    resta(n);
-  });
-});
-
-const btnSumar = document.querySelectorAll("#sumar");
-btnSumar.forEach((btnsum, n) => {
-  btnsum.addEventListener("click", () => {
-    suma(n);
-  });
-});
-
-const cerrar = document.getElementById("cerrar");
-const modal = document.getElementById("myModal");
-cerrar.addEventListener("click", () => {
-  modal.classList.add("hidden");
-  limpiarcampos();
 });
 
 function resta(n) {
@@ -135,6 +145,7 @@ function resta(n) {
 
   calcularPrecio(input, n);
 }
+
 function reset(n) {
   input = 1;
   inputnoches[n].value = input;
@@ -158,23 +169,15 @@ function calcularPrecio(noches, n) {
 
 function mostrarmodal(n) {
   const modaltemp = template[n];
-  imagenModal = document.getElementById("imagen-modal");
-  nombreModal = document.getElementById("name-modal");
-  descripcionModal = document.getElementById("description-modal");
-  precioModal = document.getElementById("precio-modal");
-  estadiaModal = document.getElementById("noches-modal");
-  totalModal = document.getElementById("total-modal");
-  iconosModal = document.getElementById("iconos-modal");
-
   let iconos = generadorlabelIco(modaltemp.icons, modaltemp.incluido);
-
-  modal.classList.remove("hidden");
+  modal.classList.replace("hidden", "fadeIn");
 
   imagenModal.innerHTML = `<img class='img-habitacion-modal' src="${modaltemp.img}">`;
   nombreModal.innerText = `${modaltemp.name}`;
   descripcionModal.innerText = `${modaltemp.description}`;
   precioModal.innerText = `$${modaltemp.price}`;
   iconosModal.innerHTML = `${iconos}`;
+
   if (input != 1) {
     estadiaModal.innerText = `${input} Noches`;
     totalModal.innerText = `$${total} Por ${input} noches`;
@@ -191,10 +194,10 @@ function iconosgenerador(ico) {
   });
   return iconos;
 }
-function generadorlabelIco(label, ico) {
+function generadorlabelIco(icon, desc) {
   let descripcion = "";
-  label.forEach((lab, n) => {
-    descripcion += `<i class="far fa-${lab}"> <span class="incluye-habitacion-p-content">${ico[n]}</span></i
+  icon.forEach((ico, n) => {
+    descripcion += `<i class="far fa-${ico}"> <span class="incluye-habitacion-p-content">${desc[n]}</span></i
   >`;
   });
   return descripcion;
@@ -204,6 +207,7 @@ function valor() {
   const options = selector.value;
   let cards = document.querySelectorAll(".card");
   let estadiabox = document.querySelectorAll(".container-total-estadia");
+
   for (i = 0; i < cards.length; i++) {
     const div = cards[i];
     const estadia = estadiabox[i];
@@ -221,12 +225,12 @@ function valor() {
   }
 }
 
-
 function limpiarcampos() {
-  (nombre.value = ""),
+    (nombre.value = ""),
     (apellido.value = ""),
     (email.value = ""),
     (telefono.value = ""),
     (fecha.value = ""),
     (cantpersonas.value = "");
 }
+

@@ -294,6 +294,7 @@ input::-webkit-inner-spin-button {
   font-weight: 400;
   margin: 0;
 }
+
 .titulo-modal {
   margin-top: -20px;
 }
@@ -308,6 +309,7 @@ input::-webkit-inner-spin-button {
   flex-wrap: wrap;
   flex-direction: row;
 }
+
 
 .imagen-habitacion-modal {
   width: 250px;
@@ -488,4 +490,67 @@ input::-webkit-inner-spin-button {
   align-items: center;
   justify-content: center;
   margin: 1em;
+}
+.container-success-reservacion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.success-img {
+  height: 375px;
+  margin: 2em;
+}
+
+
+.fadeIn {
+  animation: fadeIn ease-in 350ms;
+  -webkit-animation: fadeIn ease-in 350ms;
+  -moz-animation: fadeIn ease-in 350ms;
+  -o-animation: fadeIn ease-in 350ms;
+  -ms-animation: fadeIn ease-in 350ms;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
