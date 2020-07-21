@@ -9,7 +9,18 @@ const template = [
     cantCamas: 1,
     cantPersonas: 1,
     icons:
-      '<i class="far fa-wifi"></i><i class="far fa-air-conditioner"></i> <i class="far fa-shower"></i><i class="far fa-tv"></i>',
+    [
+      'wifi',
+      'air-conditioner',
+      'shower',
+      'tv'
+    ],
+    incluido: [
+      'Wifi gratis',
+      'Aire acondicionado',
+      'Ducha agua helada/caliente',
+      'Televisor',
+    ],
     disponible: 19,
   },
   {
@@ -22,7 +33,18 @@ const template = [
     cantCamas: 2,
     cantPersonas: 2,
     icons:
-      '<i class="far fa-wifi"></i><i class="far fa-air-conditioner"></i> <i class="far fa-shower"></i><i class="far fa-tv"></i>',
+    [
+      'wifi',
+      'air-conditioner',
+      'shower',
+      'tv'
+    ],
+    incluido: [
+      'Wifi gratis',
+      'Aire acondicionado',
+      'Ducha agua helada/caliente',
+      'Televisor',
+    ],
     disponible: 90,
   },
   {
@@ -35,7 +57,18 @@ const template = [
     cantCamas: 3,
     cantPersonas: 6,
     icons:
-      '<i class="far fa-wifi"></i><i class="far fa-air-conditioner"></i> <i class="far fa-shower"></i><i class="far fa-tv"></i>',
+     [
+       'wifi',
+       'air-conditioner',
+       'shower',
+       'tv'
+     ],
+     incluido: [
+      'Wifi gratis',
+      'Aire acondicionado',
+      'Ducha agua helada/caliente',
+      'Televisor',
+    ],
     disponible: 10,
   },
   {
@@ -48,7 +81,14 @@ const template = [
     cantCamas: 2,
     cantPersonas: 2,
     icons:
-      '<i class="far fa-wifi"></i> <i class="far fa-utensils"></i><i class="far fa-air-conditioner"></i><i class="far fa-bath"></i><i class="far fa-tv"></i>',
+     [
+       'wifi',
+       'air-conditioner',
+       'utensils',
+       'shower',
+       'bath',
+       'tv',
+     ],
     disponible: 20,
   },
   {
@@ -61,7 +101,24 @@ const template = [
     cantCamas: 2,
     cantPersonas: 2,
     icons:
-      '<i class="far fa-wifi"></i> <i class="far fa-utensils"></i><i class="far fa-air-conditioner"></i> <i class="far fa-shower"></i><i class="far fa-bath"></i><i class="far fa-tv"></i><i class="far fa-hot-tub"></i>',
+    [
+      'wifi',
+      'air-conditioner',
+      'utensils',
+      'shower',
+      'bath',
+      'tv',
+      'hot-tub'
+    ],
+    incluido: [
+      'Wifi gratis',
+      'Aire acondicionado',
+      'Desayuno',
+      'Ducha agua helada/caliente',
+      'Banera',
+      'Televisor',
+      'Yacuzzi'
+    ],
     disponible: 10,
   },
 ];

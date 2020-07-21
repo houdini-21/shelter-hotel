@@ -6,32 +6,13 @@ let total;
 
 selector.addEventListener("change", valor);
 
-function valor() {
-  const options = selector.value;
-  let cards = document.querySelectorAll(".card");
-  let estadiabox = document.querySelectorAll(".container-total-estadia");
-  for (i = 0; i < cards.length; i++) {
-    const div = cards[i];
-    const estadia = estadiabox[i];
-    options === "0"
-      ? (div.classList.remove("hidden"),
-        estadia.classList.add("hidden"),
-        reset(i))
-      : div.id === options
-      ? (div.classList.remove("hidden"),
-        estadia.classList.remove("hidden"),
-        reset(i))
-      : (div.classList.add("hidden"),
-        estadia.classList.add("hidden"),
-        reset(i));
-  }
-}
-
-template.forEach((card, l) => {
-  generadorTemplate(card, l);
+template.forEach((card, n) => {
+  generadorTemplate(card, n);
 });
 
+
 function generadorTemplate(cards) {
+  let iconos = iconosgenerador(cards.icons);
   habitacionTemp = `<article id="${cards.id}" class="card">
   <div class="card-habitacion">
     <div class="imagenes-habitacion">
@@ -60,7 +41,7 @@ function generadorTemplate(cards) {
         ${cards.description}
       </p>
       <div class="iconos-box" id='box-icon'>
-      ${cards.icons}
+      ${iconos}
       </div>
     </div>
     <div class="container-total-estadia hidden">
@@ -87,34 +68,113 @@ function generadorTemplate(cards) {
   document.getElementById("habitaciones").innerHTML = result;
 }
 
+const inputnoches = document.querySelectorAll(".noches-input");
+const precio = document.querySelectorAll(".precio");
+const numeronoches = document.querySelectorAll(".subtittle");
+
+
+const reservado = document.getElementById("reservado");
+nombre = document.getElementById("form-nombre");
+apellido = document.getElementById("form-apellido");
+email = document.getElementById("form-email");
+telefono = document.getElementById("form-telefono");
+fecha = document.getElementById("form-fecha");
+cantpersonas = document.getElementById("form-people");
+
+reservado.addEventListener("click", () => {
+  if (
+    nombre.value === "" ||
+    apellido.value === "" ||
+    email.value === "" ||
+    telefono.value === "" ||
+    fecha.value === "" ||
+    cantpersonas.value === ""
+  ) {
+    alert("Ningun campo puede quedar vacio");
+  } else {
+    alert("reservacion hecha con exito");
+    limpiarcampos();
+  }
+});
+
+const btnAceptar = document.querySelectorAll(".btn-aceptar");
+btnAceptar.forEach((btnaceptar, n) => {
+  btnaceptar.addEventListener("click", () => {
+    mostrarmodal(n);
+  });
+});
+
+const btnRestar = document.querySelectorAll("#restar");
+btnRestar.forEach((btnres, n) => {
+  btnres.addEventListener("click", () => {
+    resta(n);
+  });
+});
+
 const btnSumar = document.querySelectorAll("#sumar");
-btnRestar = document.querySelectorAll("#restar");
-inputnoches = document.querySelectorAll(".noches-input");
-precio = document.querySelectorAll(".precio");
-numeronoches = document.querySelectorAll(".subtittle");
-cerrar = document.getElementById("cerrar");
-modal = document.getElementById("myModal");
-btnAceptar = document.querySelectorAll(".btn-aceptar");
-imagenModal = document.getElementById("imagen-modal");
-nombreModal = document.getElementById("name-modal");
-descripcionModal = document.getElementById("description-modal");
-precioModal = document.getElementById("precio-modal");
-estadiaModal = document.getElementById("noches-modal");
-totalModal = document.getElementById("total-modal");
-iconosModal = document.getElementById("iconos-modal");
-reservado = document.getElementById('reservado')
+btnSumar.forEach((btnsum, n) => {
+  btnsum.addEventListener("click", () => {
+    suma(n);
+  });
+});
 
-reservado.addEventListener('click', () => {
-  alert('click')
-})
+const cerrar = document.getElementById("cerrar");
+const modal = document.getElementById("myModal");
+cerrar.addEventListener("click", () => {
+  modal.classList.add("hidden");
+  limpiarcampos();
+});
 
-function mostrarmodal(e) {
-  const modaltemp = template[e];
+function resta(n) {
+  input--;
+  if (input < 1) {
+    input = 1;
+  }
+  inputnoches[n].value = input;
+  numeronoches[n].innerText = `Por ${input} Noche(s)`;
+
+  calcularPrecio(input, n);
+}
+function reset(n) {
+  input = 1;
+  inputnoches[n].value = input;
+  numeronoches[n].innerText = `Por Noche`;
+  let resetprecio = precio[n].id;
+  precio[n].innerText = `$${resetprecio}`;
+}
+
+function suma(n) {
+  input++;
+  inputnoches[n].value = input;
+  numeronoches[n].innerText = `Por ${input} Noche(s)`;
+  calcularPrecio(input, n);
+}
+
+function calcularPrecio(noches, n) {
+  let precioHabitacion = precio[n].id;
+  total = noches * precioHabitacion;
+  precio[n].innerText = `$${total}`;
+}
+
+function mostrarmodal(n) {
+  const modaltemp = template[n];
+  imagenModal = document.getElementById("imagen-modal");
+  nombreModal = document.getElementById("name-modal");
+  descripcionModal = document.getElementById("description-modal");
+  precioModal = document.getElementById("precio-modal");
+  estadiaModal = document.getElementById("noches-modal");
+  totalModal = document.getElementById("total-modal");
+  iconosModal = document.getElementById("iconos-modal");
+
+  let iconos = generadorlabelIco(modaltemp.icons, modaltemp.incluido);
+
   modal.classList.remove("hidden");
+
   imagenModal.innerHTML = `<img class='img-habitacion-modal' src="${modaltemp.img}">`;
   nombreModal.innerText = `${modaltemp.name}`;
   descripcionModal.innerText = `${modaltemp.description}`;
   precioModal.innerText = `$${modaltemp.price}`;
+  iconosModal.innerHTML = `${iconos}`;
   if (input != 1) {
     estadiaModal.innerText = `${input} Noches`;
     totalModal.innerText = `$${total} Por ${input} noches`;
@@ -122,58 +182,51 @@ function mostrarmodal(e) {
     estadiaModal.innerText = `1 Noche`;
     totalModal.innerText = `$${modaltemp.price} Por Noche`;
   }
-  iconosModal.innerHTML = `${modaltemp.icons}`;
 }
 
-btnAceptar.forEach((btnaceptar, j) => {
-  btnaceptar.addEventListener("click", () => {
-    mostrarmodal(j);
+function iconosgenerador(ico) {
+  let iconos = "";
+  ico.forEach((icon) => {
+    iconos += `<i class='far fa-${icon}'></i>`;
   });
-});
-
-btnRestar.forEach((btnres, u) => {
-  btnres.addEventListener("click", () => {
-    resta(u);
+  return iconos;
+}
+function generadorlabelIco(label, ico) {
+  let descripcion = "";
+  label.forEach((lab, n) => {
+    descripcion += `<i class="far fa-${lab}"> <span class="incluye-habitacion-p-content">${ico[n]}</span></i
+  >`;
   });
-});
+  return descripcion;
+}
 
-cerrar.addEventListener("click", () => {
-  modal.classList.add("hidden");
-});
-
-btnSumar.forEach((btnsum, u) => {
-  btnsum.addEventListener("click", () => {
-    suma(u);
-  });
-});
-
-function resta(d) {
-  input--;
-  if (input < 1) {
-    input = 1;
+function valor() {
+  const options = selector.value;
+  let cards = document.querySelectorAll(".card");
+  let estadiabox = document.querySelectorAll(".container-total-estadia");
+  for (i = 0; i < cards.length; i++) {
+    const div = cards[i];
+    const estadia = estadiabox[i];
+    options === "0"
+      ? (div.classList.remove("hidden"),
+        estadia.classList.add("hidden"),
+        reset(i))
+      : div.id === options
+      ? (div.classList.remove("hidden"),
+        estadia.classList.remove("hidden"),
+        reset(i))
+      : (div.classList.add("hidden"),
+        estadia.classList.add("hidden"),
+        reset(i));
   }
-  inputnoches[d].value = input;
-  numeronoches[d].innerText = `Por ${input} Noche(s)`;
-
-  calcularPrecio(input, d);
-}
-function reset(i) {
-  input = 1;
-  inputnoches[i].value = input;
-  numeronoches[i].innerText = `Por Noche`;
-  let resetprecio = precio[i].id;
-  precio[i].innerText = `$${resetprecio}`;
 }
 
-function suma(o) {
-  input++;
-  inputnoches[o].value = input;
-  numeronoches[o].innerText = `Por ${input} Noche(s)`;
-  calcularPrecio(input, o);
-}
 
-function calcularPrecio(noches, uid) {
-  let precioHabitacion = precio[uid].id;
-  total = noches * precioHabitacion;
-  precio[uid].innerText = `$${total}`;
+function limpiarcampos() {
+  (nombre.value = ""),
+    (apellido.value = ""),
+    (email.value = ""),
+    (telefono.value = ""),
+    (fecha.value = ""),
+    (cantpersonas.value = "");
 }
