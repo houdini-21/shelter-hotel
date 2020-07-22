@@ -4,10 +4,10 @@ let result = "";
 let input = 1;
 let total;
 
-selector.addEventListener("change", valor);
+selector.addEventListener("change", btnselector);
 
-template.forEach((card, n) => {
-  generadorTemplate(card, n);
+template.forEach((card, nArray) => {
+  generadorTemplate(card, nArray);
 });
 
 function generadorTemplate(cards) {
@@ -92,24 +92,23 @@ btnAceptar = document.querySelectorAll(".btn-aceptar");
 btncerrar = document.getElementById("cerrar");
 modal = document.getElementById("myModal");
 
-
-btnAceptar.forEach((btnaceptar, n) => {
+btnAceptar.forEach((btnaceptar, nArray) => {
   btnaceptar.addEventListener("click", () => {
     containerReservacion.classList.remove("hidden");
     containerReservacionFinalizada.classList.add("hidden");
-    mostrarmodal(n);
+    mostrarmodal(nArray);
   });
 });
 
-btnRestar.forEach((btnres, n) => {
+btnRestar.forEach((btnres, nArray) => {
   btnres.addEventListener("click", () => {
-    resta(n);
+    resta(nArray);
   });
 });
 
-btnSumar.forEach((btnsum, n) => {
+btnSumar.forEach((btnsum, nArray) => {
   btnsum.addEventListener("click", () => {
-    suma(n);
+    suma(nArray);
   });
 });
 
@@ -119,13 +118,13 @@ btncerrar.addEventListener("click", () => {
 });
 
 btnreservado.addEventListener("click", () => {
-  if (
+ if (
     nombre.value === "" ||
     apellido.value === "" ||
     email.value === "" ||
     telefono.value === "" ||
     fecha.value === "" ||
-    cantpersonas.value === ""
+    cantpersonas.value === "" 
   ) {
     alert("Ningun campo puede quedar vacio");
   } else {
@@ -135,40 +134,40 @@ btnreservado.addEventListener("click", () => {
   }
 });
 
-function resta(n) {
+function resta(nArray) {
   input--;
   if (input < 1) {
     input = 1;
   }
-  inputnoches[n].value = input;
-  numeronoches[n].innerText = `Por ${input} Noche(s)`;
+  inputnoches[nArray].value = input;
+  numeronoches[nArray].innerText = `Por ${input} Noche(s)`;
 
-  calcularPrecio(input, n);
+  calcularPrecio(input, nArray);
 }
 
-function reset(n) {
+function reset(nArray) {
   input = 1;
-  inputnoches[n].value = input;
-  numeronoches[n].innerText = `Por Noche`;
-  let resetprecio = precio[n].id;
-  precio[n].innerText = `$${resetprecio}`;
+  inputnoches[nArray].value = input;
+  numeronoches[nArray].innerText = `Por Noche`;
+  let resetprecio = precio[nArray].id;
+  precio[nArray].innerText = `$${resetprecio}`;
 }
 
-function suma(n) {
+function suma(nArray) {
   input++;
-  inputnoches[n].value = input;
-  numeronoches[n].innerText = `Por ${input} Noche(s)`;
-  calcularPrecio(input, n);
+  inputnoches[nArray].value = input;
+  numeronoches[nArray].innerText = `Por ${input} Noche(s)`;
+  calcularPrecio(input, nArray);
 }
 
-function calcularPrecio(noches, n) {
-  let precioHabitacion = precio[n].id;
+function calcularPrecio(noches, nArray) {
+  let precioHabitacion = precio[nArray].id;
   total = noches * precioHabitacion;
-  precio[n].innerText = `$${total}`;
+  precio[nArray].innerText = `$${total}`;
 }
 
-function mostrarmodal(n) {
-  const modaltemp = template[n];
+function mostrarmodal(nArray) {
+  const modaltemp = template[nArray];
   let iconos = generadorlabelIco(modaltemp.icons, modaltemp.incluido);
   modal.classList.replace("hidden", "fadeIn");
 
@@ -203,7 +202,7 @@ function generadorlabelIco(icon, desc) {
   return descripcion;
 }
 
-function valor() {
+function btnselector() {
   const options = selector.value;
   let cards = document.querySelectorAll(".card");
   let estadiabox = document.querySelectorAll(".container-total-estadia");
@@ -226,11 +225,10 @@ function valor() {
 }
 
 function limpiarcampos() {
-    (nombre.value = ""),
+  (nombre.value = ""),
     (apellido.value = ""),
     (email.value = ""),
     (telefono.value = ""),
     (fecha.value = ""),
     (cantpersonas.value = "");
 }
-

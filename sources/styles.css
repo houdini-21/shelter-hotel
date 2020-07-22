@@ -23,11 +23,6 @@ select {
 select::-ms-expand {
   display: none;
 }
-select:hover {
-  transition: 400ms;
-  color: #fafafa;
-  background-color: #ff5a5f;
-}
 
 #selector-habitacion {
   margin: 20px;
@@ -75,6 +70,7 @@ select:hover {
   color: #ff5a5f;
   font-size: 25px;
 }
+
 .number-icon,
 .card-habitacion,
 .plus-minus,
@@ -192,6 +188,7 @@ input.noches-input {
   transition: background 0.4s;
   cursor: pointer;
 }
+
 .btn-estadia:hover {
   background: #ff6f73 radial-gradient(circle, transparent 1%, #ff5a5f 1%)
     center/15000%;
@@ -274,19 +271,23 @@ input::-webkit-inner-spin-button {
   margin-right: 20px;
   margin-top: 15px;
 }
+
 .exit-btn i {
   font-size: 30px;
   color: #ff5a5f;
 }
+
 .modal-container {
   width: 1000px;
   height: 565px;
   background-color: #ffffff;
   border-radius: 20px;
 }
+
 .tittle {
   text-align: center;
 }
+
 .titulo-modal,
 .titulo-modal-formulario {
   font-size: 25px;
@@ -310,17 +311,18 @@ input::-webkit-inner-spin-button {
   flex-direction: row;
 }
 
-
 .imagen-habitacion-modal {
   width: 250px;
   height: 150px;
   margin: 1em;
 }
-.img-habitacion-modal {
+
+img.img-habitacion-modal {
   width: 250px;
   height: 150px;
   border-radius: 5px;
 }
+
 
 .detalles-habitacion-modal {
   width: 40%;
@@ -333,6 +335,7 @@ input::-webkit-inner-spin-button {
   margin-bottom: 10px;
   margin-top: 10px;
 }
+
 .detalles-habitacion-p-content {
   color: #404040;
   font-weight: 200;
