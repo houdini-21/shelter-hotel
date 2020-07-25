@@ -1,11 +1,8 @@
-const selector = document.getElementById("selector");
 let result = "";
 
-selector.addEventListener("change", btnselector);
-
-class UI {
+class TemplateHabitacion {
   generarTemplate(habitacion) {
-    let iconos = this.icongenerador(habitacion.icons);
+    let iconos = this.generarIconos(habitacion.icons);
     let habitacionTemp = `<article id="${habitacion.id}" class="card">
           <div class="card-habitacion">
             <div class="imagenes-habitacion">
@@ -61,7 +58,7 @@ class UI {
     document.getElementById("habitaciones").innerHTML = result;
   }
 
-  icongenerador(ico) {
+  generarIconos(ico) {
     let iconos = "";
     ico.forEach((icon) => {
       iconos += `<i class='far fa-${icon}'></i>`;
@@ -70,23 +67,60 @@ class UI {
   }
 }
 
-function btnselector() {
-  const options = selector.value;
-  let card = document.querySelectorAll(".card");
-  let estadiabox = document.querySelectorAll(".container-total-estadia");
-
-  for (i = 0; i < card.length; i++) {
-    const div = card[i];
-    const estadia = estadiabox[i];
-    options === "0"
-      ? (div.classList.remove("hidden"), estadia.classList.add("hidden"))
-      : div.id === options
-      ? (div.classList.remove("hidden"), estadia.classList.remove("hidden"))
-      : (div.classList.add("hidden"), estadia.classList.add("hidden"));
+class FuncionalidadesBtns {
+  ocultaryMostrarCards(optionselect) {
+    let cardHabitacion = document.querySelectorAll(".card");
+    let btnEstadia = document.querySelectorAll(".container-total-estadia");
+    for (let i = 0; i < cardHabitacion.length; i++) {
+      const divHabitacion = cardHabitacion[i];
+      const btnControlEstadia = btnEstadia[i];
+      optionselect === "0"
+        ? (this.mostrarHabitacion(divHabitacion),
+          this.ocultarBtnsEstadia(btnControlEstadia))
+        : optionselect === divHabitacion.id
+        ? (this.mostrarHabitacion(divHabitacion),
+          this.mostrarHabitacion(btnControlEstadia))
+        : (this.ocultarHabitacion(divHabitacion),
+          this.ocultarBtnsEstadia(btnControlEstadia));
+    }
+  }
+  ocultarHabitacion(div){
+    div.classList.add('hidden')
+  }
+  mostrarHabitacion(div){
+    div.classList.remove('hidden')
+  }
+  ocultarBtnsEstadia(div){
+    div.classList.add('hidden')
+  }
+  mostrarBtnsEstadia(div){
+    div.classList.remove('hidden')
   }
 }
 
+const selector = document.getElementById("selector");
+const ui = new TemplateHabitacion();
+const botones = new FuncionalidadesBtns();
+
 template.forEach((card) => {
-  const ui = new UI();
   ui.generarTemplate(card);
 });
+
+selector.addEventListener("change", () => {
+  const selectedOption = selector.value;
+  botones.ocultaryMostrarCards(selectedOption);
+});
+
+const btnSumarDias = document.querySelectorAll("#sumar");
+const btnRestarDias = document.querySelectorAll("#restar");
+
+btnSumarDias.forEach((btn, nArray)=>{
+  btn.addEventListener('click', ()=> {
+    console.log(nArray)
+  })
+})
+btnRestarDias.forEach((btn, nArray)=>{
+  btn.addEventListener('click', ()=> {
+    console.log(nArray)
+  })
+})
