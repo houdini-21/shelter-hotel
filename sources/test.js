@@ -1,4 +1,6 @@
 let result = "";
+let cantNoches = 1;
+let precioTotal = 0
 
 class TemplateHabitacion {
   generarTemplate(habitacion) {
@@ -71,9 +73,11 @@ class FuncionalidadesBtns {
   ocultaryMostrarCards(optionselect) {
     let cardHabitacion = document.querySelectorAll(".card");
     let btnEstadia = document.querySelectorAll(".container-total-estadia");
+
     for (let i = 0; i < cardHabitacion.length; i++) {
       const divHabitacion = cardHabitacion[i];
       const btnControlEstadia = btnEstadia[i];
+      this.reset(i)
       optionselect === "0"
         ? (this.mostrarHabitacion(divHabitacion),
           this.ocultarBtnsEstadia(btnControlEstadia))
@@ -84,17 +88,48 @@ class FuncionalidadesBtns {
           this.ocultarBtnsEstadia(btnControlEstadia));
     }
   }
-  ocultarHabitacion(div){
-    div.classList.add('hidden')
+  ocultarHabitacion(div) {
+    div.classList.add("hidden");
   }
-  mostrarHabitacion(div){
-    div.classList.remove('hidden')
+  mostrarHabitacion(div) {
+    div.classList.remove("hidden");
   }
-  ocultarBtnsEstadia(div){
-    div.classList.add('hidden')
+  ocultarBtnsEstadia(div) {
+    div.classList.add("hidden");
   }
-  mostrarBtnsEstadia(div){
-    div.classList.remove('hidden')
+  mostrarBtnsEstadia(div) {
+    div.classList.remove("hidden");
+  }
+
+  restarInput(nArray) {
+    cantNoches--;
+    if(cantNoches < 1){
+      cantNoches = 1
+    }
+    this.calcularPrecio(cantNoches, nArray)
+    inputValue[nArray].value = cantNoches;
+    subtituloCantNoches[nArray].innerText = `Por ${cantNoches} Noche(s)`
+  }
+
+  sumarInput(nArray) {
+    cantNoches++;
+    this.calcularPrecio(cantNoches, nArray)
+    inputValue[nArray].value = cantNoches;
+    subtituloCantNoches[nArray].innerText = `Por ${cantNoches} Noche(s)`
+  }
+
+  calcularPrecio(noches, nArray){
+    let price = precioHabitacion[nArray].id;
+    precioTotal = noches * price;
+    precioHabitacion[nArray].innerText = `$${precioTotal}`;
+  }
+
+  reset(nArray) {
+    cantNoches = 1;
+    inputValue[nArray].value = cantNoches;
+    subtituloCantNoches[nArray].innerText = `Por Noche(s)`
+    let precioReiniciado = precioHabitacion[nArray].id
+    precioHabitacion[nArray].innerText = `$${precioReiniciado}`
   }
 }
 
@@ -113,14 +148,18 @@ selector.addEventListener("change", () => {
 
 const btnSumarDias = document.querySelectorAll("#sumar");
 const btnRestarDias = document.querySelectorAll("#restar");
+const inputValue = document.querySelectorAll(".noches-input");
+const subtituloCantNoches = document.querySelectorAll(".subtittle");
+const precioHabitacion = document.querySelectorAll('.precio')
 
-btnSumarDias.forEach((btn, nArray)=>{
-  btn.addEventListener('click', ()=> {
-    console.log(nArray)
-  })
-})
-btnRestarDias.forEach((btn, nArray)=>{
-  btn.addEventListener('click', ()=> {
-    console.log(nArray)
-  })
-})
+btnSumarDias.forEach((btn, nArray) => {
+  btn.addEventListener("click", () => {
+    botones.sumarInput(nArray);
+  });
+});
+
+btnRestarDias.forEach((btn, nArray) => {
+  btn.addEventListener("click", () => {
+    botones.restarInput(nArray);
+  });
+});
