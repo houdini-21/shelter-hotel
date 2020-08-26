@@ -80,7 +80,9 @@ telefono = document.getElementById("form-telefono");
 fecha = document.getElementById("form-fecha");
 cantpersonas = document.getElementById("form-people");
 containerReservacion = document.getElementById("reservacion-container");
-containerReservacionFinalizada = document.getElementById("reservacion-terminada");
+containerReservacionFinalizada = document.getElementById(
+  "reservacion-terminada"
+);
 imagenModal = document.getElementById("imagen-modal");
 nombreModal = document.getElementById("name-modal");
 descripcionModal = document.getElementById("description-modal");
@@ -118,13 +120,13 @@ btncerrar.addEventListener("click", () => {
 });
 
 btnreservado.addEventListener("click", () => {
- if (
+  if (
     nombre.value === "" ||
     apellido.value === "" ||
     email.value === "" ||
     telefono.value === "" ||
     fecha.value === "" ||
-    cantpersonas.value === "" 
+    cantpersonas.value === ""
   ) {
     alert("Ningun campo puede quedar vacio");
   } else {

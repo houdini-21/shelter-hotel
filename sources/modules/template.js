@@ -103,3 +103,5 @@ const template = [
     disponible: 10,
   },
 ];
+
+export default template;
