@@ -1,12 +1,8 @@
 import template from "./modules/template.js";
 import { generarModal, generarTemplate } from "./modules/Generador.js";
 import { ocultaryMostrarCards } from "./modules/Ocultador.js";
-import {
-  restarInput,
-  sumarInput,
-  cantNoches,
-  precioTotal,
-} from "./modules/SumarRestarNoches.js";
+import {restarInput,sumarInput,cantNoches,precioTotal,} from "./modules/SumarRestarNoches.js";
+
 const selector = document.getElementById("selector");
 
 template.forEach((data) => {
