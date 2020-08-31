@@ -269,7 +269,7 @@ input::-webkit-inner-spin-button {
   display: flex;
   justify-content: flex-end;
   margin-right: 20px;
-  margin-top: 15px;
+  margin-top: 5px;
 }
 
 .exit-btn i {
