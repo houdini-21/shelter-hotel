@@ -6,16 +6,16 @@ const template = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum deleniti officia minus praesentium sapiente non dignissi",
     img: "./sources/habitacion1.jpg",
     price: 45,
-    cantCamas: 1,
-    cantPersonas: 1,
+    numBeds: 1,
+    numPeople: 1,
     icons: ["wifi", "air-conditioner", "shower", "tv"],
-    incluido: [
+    include: [
       "Wifi",
       "Aire acondicionado",
       "Ducha agua helada/caliente",
       "Televisor",
     ],
-    disponible: 19,
+    available: 19,
   },
   {
     id: "habitacion2",
@@ -24,16 +24,16 @@ const template = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum deleniti officia minus praesentium sapiente non dignissi",
     img: "./sources/habitacion2.jpg",
     price: 75,
-    cantCamas: 2,
-    cantPersonas: 2,
+    numBeds: 2,
+    numPeople: 2,
     icons: ["wifi", "air-conditioner", "shower", "tv"],
-    incluido: [
+    include: [
       "Wifi",
       "Aire acondicionado",
       "Ducha agua helada/caliente",
       "Televisor",
     ],
-    disponible: 90,
+    available: 90,
   },
   {
     id: "habitacion3",
@@ -42,16 +42,16 @@ const template = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum deleniti officia minus praesentium sapiente non dignissi",
     img: "./sources/habitacion3.jpg",
     price: 95,
-    cantCamas: 3,
-    cantPersonas: 6,
+    numBeds: 3,
+    numPeople: 6,
     icons: ["wifi", "air-conditioner", "shower", "tv"],
-    incluido: [
+    include: [
       "Wifi",
       "Aire acondicionado",
       "Ducha agua helada/caliente",
       "Televisor",
     ],
-    disponible: 10,
+    available: 10,
   },
   {
     id: "habitacion4",
@@ -60,10 +60,10 @@ const template = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum deleniti officia minus praesentium sapiente non dignissi",
     img: "./sources/habitacion4.jpg",
     price: 120,
-    cantCamas: 2,
-    cantPersonas: 2,
+    numBeds: 2,
+    numPeople: 2,
     icons: ["wifi", "air-conditioner", "utensils", "shower", "bath", "tv"],
-    incluido: [
+    include: [
       "Wifi",
       "Aire acondicionado",
       "Desayuno",
@@ -71,7 +71,7 @@ const template = [
       "Bañera",
       "Television",
     ],
-    disponible: 20,
+    available: 20,
   },
   {
     id: "habitacion5",
@@ -80,8 +80,8 @@ const template = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum deleniti officia minus praesentium sapiente non dignissi",
     img: "./sources/habitacion5.jpg",
     price: 150,
-    cantCamas: 2,
-    cantPersonas: 2,
+    numBeds: 2,
+    numPeople: 2,
     icons: [
       "wifi",
       "air-conditioner",
@@ -91,7 +91,7 @@ const template = [
       "tv",
       "hot-tub",
     ],
-    incluido: [
+    include: [
       "Wifi",
       "Aire acondicionado",
       "Desayuno",
@@ -100,7 +100,7 @@ const template = [
       "Televisor",
       "Jacuzzi",
     ],
-    disponible: 10,
+    available: 10,
   },
 ];
 

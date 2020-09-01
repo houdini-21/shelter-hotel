@@ -12,7 +12,7 @@ import {
 const selector = document.getElementById("selector");
 let ro = "";
 template.forEach((data) => {
-  ro = new Room(
+  let habitacion = new Room(
     data.id,
     data.name,
     data.description,
@@ -24,7 +24,7 @@ template.forEach((data) => {
     data.incluido,
     data.disponible
   );
-  ro.generarTemplate();
+  habitacion.generarTemplate();
 });
 
 const btnSumarDias = document.querySelectorAll("#sumar");
