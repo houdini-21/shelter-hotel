@@ -10,22 +10,6 @@ import {
 } from "./modules/SumarRestarNoches.js";
 
 const selector = document.getElementById("selector");
-let ro = "";
-template.forEach((data) => {
-  let habitacion = new Room(
-    data.id,
-    data.name,
-    data.description,
-    data.img,
-    data.price,
-    data.cantCamas,
-    data.cantPersonas,
-    data.icons,
-    data.incluido,
-    data.disponible
-  );
-  habitacion.generarTemplate();
-});
 
 const btnSumarDias = document.querySelectorAll("#sumar");
 const btnRestarDias = document.querySelectorAll("#restar");
