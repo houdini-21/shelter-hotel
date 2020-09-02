@@ -241,10 +241,9 @@ input.nigths-input {
 }
 
 .exit-modal {
-  display: flex;
-  justify-content: flex-end;
-  margin-right: 20px;
-  margin-top: 15px;
+  position: absolute;
+  margin-left: 960px;
+  margin-top: 10px;
 }
 
 .detalles-habitacion-modal {
@@ -377,7 +376,6 @@ input.nigths-input {
   transform: translateX(0%);
 }
 
-
 .btn-reserve {
   height: 40px;
   width: 100%;
@@ -418,7 +416,6 @@ input.nigths-input {
   height: 375px;
   margin: 2em;
 }
-
 
 .fadeIn {
   animation: fadeIn ease-in 350ms;
