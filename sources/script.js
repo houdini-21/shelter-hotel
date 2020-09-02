@@ -13,17 +13,17 @@ const selector = document.getElementById("selector");
 
 const btnSumarDias = document.querySelectorAll("#sumar");
 const btnRestarDias = document.querySelectorAll("#restar");
-const btnAceptarHabitacion = document.querySelectorAll(".btn-aceptar");
+const btnAgreeRoom = document.querySelectorAll(".btn-agree");
 
 selector.addEventListener("change", () => {
   ocultaryMostrarCards(selector.value);
 });
 
-btnAceptarHabitacion.forEach((btn, nArray) => {
+btnAgreeRoom.forEach((btn, nArray) => {
   btn.addEventListener("click", () => {
-    let cantnoches = cantNoches;
-    let preciototal = precioTotal;
-    generarModal(nArray, cantnoches, preciototal);
+    let numNigths = cantNoches;
+    let total = precioTotal;
+    showModal(nArray, numNigths, total);
   });
 });
 

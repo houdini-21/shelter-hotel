@@ -116,7 +116,7 @@ class Room {
     let dataRoom = {
       id: this.id,
       name: this.name,
-      descriptiont: this.description,
+      description: this.description,
       img: this.img,
       price: this.price,
       numbeds: this.numbeds,

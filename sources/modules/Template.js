@@ -1,10 +1,10 @@
 import { Room, bedroomdata } from "./Rooms.js";
 
 const room1 = new Room(
-  "habitacion1",
+  "room1",
   "Habitacion Individual",
 
-  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum deleniti officia minus praesentium sapiente non dignissi",
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum, auctor pharetra, euismod pulvinar. Ipsum vestibulum amet suspendisse aliquam. Lacus et sit mauris dictum et sagittis gravida.",
   "./sources/habitacion1.jpg",
   45,
   1,
@@ -15,10 +15,10 @@ const room1 = new Room(
 );
 
 const room2 = new Room(
-  "habitacion2",
+  "room2",
   "Habitacion Doble",
 
-  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum deleniti officia minus praesentium sapiente non dignissi",
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum, auctor pharetra, euismod pulvinar. Ipsum vestibulum amet suspendisse aliquam. Lacus et sit mauris dictum et sagittis gravida.",
   "./sources/habitacion2.jpg",
   75,
   2,
@@ -28,10 +28,10 @@ const room2 = new Room(
   90
 );
 const room3 = new Room(
-  "habitacion3",
+  "room3",
   "Habitacion Familiar",
 
-  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum deleniti officia minus praesentium sapiente non dignissi",
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum, auctor pharetra, euismod pulvinar. Ipsum vestibulum amet suspendisse aliquam. Lacus et sit mauris dictum et sagittis gravida.",
   "./sources/habitacion3.jpg",
   95,
   3,
@@ -41,10 +41,10 @@ const room3 = new Room(
   10
 );
 const room4 = new Room(
-  "habitacion4",
+  "room4",
   "Habitacion Gold",
 
-  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum deleniti officia minus praesentium sapiente non dignissi",
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum, auctor pharetra, euismod pulvinar. Ipsum vestibulum amet suspendisse aliquam. Lacus et sit mauris dictum et sagittis gravida.",
   "./sources/habitacion4.jpg",
   120,
   2,
@@ -61,10 +61,10 @@ const room4 = new Room(
   20
 );
 const room5 = new Room(
-  "habitacion5",
+  "room5",
   "Habitacion VIP",
 
-  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum deleniti officia minus praesentium sapiente non dignissi",
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum, auctor pharetra, euismod pulvinar. Ipsum vestibulum amet suspendisse aliquam. Lacus et sit mauris dictum et sagittis gravida.",
   "./sources/habitacion5.jpg",
   150,
   2,
