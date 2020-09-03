@@ -9,7 +9,7 @@ const genIcons = (icons, type, label) => {
       iconsgen += `<i class='far fa-${icon}'></i>`;
     });
   } else if (type === "icons-label") {
-    icons.forEach((icon, nArray, label) => {
+    icons.forEach((icon, nArray) => {
       iconsgen += `<i class="far fa-${icon}">
       <span class="incluide-room-p-bold"
         >${label[nArray]}</span
@@ -99,7 +99,7 @@ const showModal = (nArray, nigths, total) => {
   const modalTemplate = `
   <div class="img-modal">
   <div class="box-img">
-    <img class="img" src="./sources/habitacion1.jpg" />
+    <img class="img" src="${modalData.img}" />
   </div>
 </div>
 <div class="description-modal flex-column">
@@ -118,7 +118,7 @@ const showModal = (nArray, nigths, total) => {
   <p class="details-room-p">
     Precio:
     <span class="details-room-p-bold" id="precio-modal"
-      >$${modalData.price}</span
+      >$${modalData.price} Por Noche</span
     >
   </p>
   <p class="details-room-p">
@@ -137,7 +137,7 @@ const showModal = (nArray, nigths, total) => {
 </div>
 <div class="incluide-modal flex-column">
   <p class="details-room-p">Incluido:</p>
-  <div class="icons-container flex-center">
+  <div class="icons-container flex-column">
 ${iconsRoom}
   </div>
 </div>`;

@@ -226,7 +226,7 @@ input.nigths-input {
 
 .modal {
   width: 1000px;
-  height: 565px;
+  height: 595px;
   background-color: #ffffff;
   border-radius: 20px;
 }
@@ -268,12 +268,13 @@ input.nigths-input {
 }
 
 .incluide-modal i {
-  font-size: 19px;
+  font-size: 15px;
   color: #ff5a5f;
   margin: 5px;
 }
 .description-modal {
   margin: 0px 15px;
+  width: 465px;
 }
 
 .incluide-room-p-bold {
