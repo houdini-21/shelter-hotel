@@ -64,4 +64,5 @@ const plusInput = (nArray) => {
   subCantNights[nArray].innerText = `Por ${numNigths} Noche(s)`;
 };
 
+
 export { hiddenshowCards, minInput, plusInput, numNigths, Total };

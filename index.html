@@ -61,7 +61,7 @@
                     name="name"
                     autocomplete="off"
                     required
-                    id="form-nombre"
+                    id="form-name"
                   />
                   <label for="name" class="label-name">
                     <span class="content-name">Nombre</span>
@@ -73,7 +73,7 @@
                     name="apellido"
                     autocomplete="off"
                     required
-                    id="form-apellido"
+                    id="form-lastname"
                   />
                   <label for="apellido" class="label-name">
                     <span class="content-name">Apellido</span>
@@ -97,23 +97,37 @@
                     name="telefono"
                     autocomplete="off"
                     required
-                    id="form-telefono"
+                    id="form-numphone"
                   />
                   <label for="telefono" class="label-name">
                     <span class="content-name">Telefono</span>
                   </label>
                 </div>
-                <div class="form-date">
-                  <input
-                    type="date"
-                    name="fecha"
-                    autocomplete="off"
-                    required
-                    id="form-fecha"
-                  />
-                  <label for="fecha" class="label-name">
-                    <span class="content-name">Fecha inicio</span>
-                  </label>
+                <div class="form-dates-box flex-row">
+                  <div class="form-date">
+                    <input
+                      type="date"
+                      name="date-start"
+                      id="form-datestart"
+                      value=" "
+                    />
+                    <label for="date-start" class="label-name">
+                      <span class="content-name">Fecha Inicio</span>
+                    </label>
+                  </div>
+
+                  <div class="form-date">
+                    <input
+                      type="date"
+                      name="date-end"
+                      autocomplete="off"
+                      required
+                      id="form-dateend"
+                    />
+                    <label for="date-end" class="label-name">
+                      <span class="content-name">Fecha Final</span>
+                    </label>
+                  </div>
                 </div>
                 <div class="form">
                   <input
@@ -121,22 +135,22 @@
                     name="personas"
                     autocomplete="off"
                     required
-                    id="form-people"
+                    id="form-rooms"
                   />
                   <label for="personas" class="label-name">
-                    <span class="content-name">Cantidad personas</span>
+                    <span class="content-name">Cantidad Cuartos</span>
                   </label>
                 </div>
               </form>
 
               <div class="box-btn">
-                <button type="submit" id="reservado" class="btn-reserve">
+                <button type="submit" id="reserve" class="btn-reserve">
                   Aceptar
                 </button>
               </div>
             </div>
 
-            <div class="container-success hidden" id="reserve-terminada">
+            <div class="container-success hidden" id="reserve-sucess">
               <div class="tittle">
                 <h2 class="titulo-modal">
                   Tu reserva fue finalizada con exito
@@ -147,7 +161,7 @@
               </div>
             </div>
           </div>
-          <div class="exit-modal">
+          <div class="exit-modal" id="exitbtn">
             <i class="far fa-times"></i>
           </div>
         </div>

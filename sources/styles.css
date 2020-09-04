@@ -27,7 +27,7 @@ body {
   margin: 5px 10px;
 }
 
-select {
+.select-rooms select {
   width: 220px;
   cursor: pointer;
   padding: 10px 15px;
@@ -68,6 +68,10 @@ input.nigths-input {
   color: #fafafa;
   font-size: 19px;
   border: none;
+  cursor: pointer;
+}
+.btn-days:focus {
+  outline: none;
 }
 .minus {
   border-radius: 5px 0px 0px 5px;
@@ -129,6 +133,11 @@ input.nigths-input {
 
 .img {
   width: 240px;
+  border-radius: 5px;
+}
+
+.img-modal {
+  width: 280px;
   border-radius: 5px;
 }
 
@@ -225,7 +234,7 @@ input.nigths-input {
 }
 
 .modal {
-  width: 1000px;
+  width: 1020px;
   height: 595px;
   background-color: #ffffff;
   border-radius: 20px;
@@ -246,7 +255,7 @@ input.nigths-input {
 
 .exit-modal {
   position: absolute;
-  margin-left: 960px;
+  margin-left: 975px;
   margin-top: 10px;
 }
 
@@ -356,6 +365,9 @@ input.nigths-input {
   bottom: 5px;
   left: 0px;
   transition: all 0.3s ease;
+}
+.form-date {
+  width: 50%;
 }
 
 .form input:focus + .label-name .content-name,

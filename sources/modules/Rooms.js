@@ -127,6 +127,9 @@ class Room {
     };
     return dataRoom;
   }
+
+  verifiedAvaiable(){
+  }
 }
 
 export { Room, bedroomdata };
