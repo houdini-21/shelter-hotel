@@ -7,7 +7,6 @@ import {
   numNigths,
   Total,
 } from "./modules/BtnsFuntional.js";
-import Guest from "./modules/Guest.js";
 import { getdate, updateDateEnd, addEndReserve } from "./modules/Dates.js";
 import { resetField, verifiedField } from "./modules/Validations.js";
 
