@@ -44,11 +44,162 @@
       </section>
 
       <section id="myModal" class="modal hidden">
+        <article class="modal-container">
+          <div class="exit-btn">
+            <i class="far fa-times" id="cerrar"></i>
+          </div>
+          <div class="container-reservacion-form" id="reservacion-container">
+            <div class="tittle">
+              <h2 class="titulo-modal">Detalles Habitacion</h2>
+            </div>
+            <div class="container-habitacion-detalles-img">
+              <div class="imagen-habitacion-modal" id="imagen-modal"></div>
+              <div class="detalles-habitacion-modal">
+                <p class="detalles-habitacion-p">
+                  Habitacion:
+                  <span
+                    class="detalles-habitacion-p-content"
+                    id="name-modal"
+                  ></span>
+                </p>
+                <p class="detalles-habitacion-p">
+                  Descripcion:
+                  <span
+                    class="detalles-habitacion-p-content"
+                    id="description-modal"
+                  ></span>
+                </p>
+                <p class="detalles-habitacion-p">
+                  Precio:
+                  <span
+                    class="detalles-habitacion-p-content"
+                    id="precio-modal"
+                  ></span>
+                </p>
+                <p class="detalles-habitacion-p">
+                  Estadia:
+                  <span
+                    class="detalles-habitacion-p-content"
+                    id="noches-modal"
+                  ></span>
+                </p>
+                <p class="detalles-habitacion-p">
+                  Total:
+                  <span
+                    class="detalles-habitacion-p-content"
+                    id="total-modal"
+                  ></span>
+                </p>
+              </div>
+              <div class="incluye-habitacion">
+                <p class="detalles-habitacion-p">Incluye:</p>
+                <div class="iconos-incluye" id="iconos-modal"></div>
+              </div>
+            </div>
+
+            <div class="tittle">
+              <h2 class="titulo-modal-formulario">Formulario</h2>
+            </div>
+            <div class="formulario-habitacion-modal">
+              <form class="formulario-reserva">
+                <div class="form">
+                  <input
+                    type="text"
+                    name="name"
+                    autocomplete="off"
+                    required
+                    id="form-nombre"
+                  />
+                  <label for="name" class="label-name">
+                    <span class="content-name">Nombre</span>
+                  </label>
+                </div>
+
+                <div class="form">
+                  <input
+                    type="text"
+                    name="apellido"
+                    autocomplete="off"
+                    required
+                    id="form-apellido"
+                  />
+                  <label for="apellido" class="label-name">
+                    <span class="content-name">Apellido</span>
+                  </label>
+                </div>
+                <div class="form">
+                  <input
+                    type="email"
+                    name="mail"
+                    autocomplete="off"
+                    required
+                    id="form-email"
+                  />
+                  <label for="mail" class="label-name">
+                    <span class="content-name">Email</span>
+                  </label>
+                </div>
+
+                <div class="form">
+                  <input
+                    type="number"
+                    name="telefono"
+                    autocomplete="off"
+                    required
+                    id="form-telefono"
+                  />
+                  <label for="telefono" class="label-name">
+                    <span class="content-name">Telefono</span>
+                  </label>
+                </div>
+                <div class="form-date">
+                  <input
+                    type="date"
+                    name="fecha"
+                    autocomplete="off"
+                    required
+                    id="form-fecha"
+                  />
+                  <label for="fecha" class="label-name">
+                    <span class="content-name">Fecha inicio</span>
+                  </label>
+                </div>
+                <div class="form">
+                  <input
+                    type="number"
+                    name="personas"
+                    autocomplete="off"
+                    required
+                    id="form-people"
+                  />
+                  <label for="personas" class="label-name">
+                    <span class="content-name">Cantidad personas</span>
+                  </label>
+                </div>
+              </form>
+            </div>
+            <div class="box-btn">
+              <button type="submit" id="reservado" class="btn-reservacion">
+                Aceptar
+              </button>
+            </div>
+          </div>
+          <div class="container-success hidden" id="reservacion-terminada">
+            <div class="tittle">
+              <h2 class="titulo-modal">
+                Tu reserva fue finalizada con exito
+              </h2>
+            </div>
+            <div class="container-success-reservacion">
+              <img class="success-img" src="./sources/success.svg" />
+            </div>
+          </div>
+        </article>
       </section>
 
       <section id="habitaciones"></section>
     </main>
-    <script type='module' src="./sources/script.js"></script>
-    <!--<script src"./sources/scriptPOO.js></script>"-->
+    <script src="./sources/template.js"></script>
+    <script src="./sources/scripts.js"></script>
   </body>
 </html>
