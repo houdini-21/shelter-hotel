@@ -1,8 +1,5 @@
 import template from "./modules/Template.js";
-import {
-  genCards,
-  showModal
-} from "./modules/RenderTemplate.js";
+import { genCards, showModal } from "./modules/RenderTemplate.js";
 import {
   hiddenshowCards,
   minInput,
@@ -11,6 +8,8 @@ import {
   Total,
 } from "./modules/BtnsFuntional.js";
 import Guest from "./modules/Guest.js";
+import { getdate, updateDateEnd, addEndReserve } from "./modules/Dates.js";
+import { resetField, verifiedField } from "./modules/Validations.js";
 
 template.forEach((data) => {
   genCards(data);
@@ -40,17 +39,22 @@ const name = document.getElementById("form-name");
 const lastname = document.getElementById("form-lastname");
 const email = document.getElementById("form-email");
 const phone = document.getElementById("form-numphone");
-let datestart = document.getElementById("form-datestart");
-let dateend = document.getElementById("form-dateend");
+const datestart = document.getElementById("form-datestart");
+const dateend = document.getElementById("form-dateend");
 const numroom = document.getElementById("form-rooms");
 const reservebtn = document.getElementById("reserve");
 const exitbtn = document.getElementById("exitbtn");
+datestart.min = getdate();
 
 btnAgreeRoom.forEach((btn, nArray) => {
   btn.addEventListener("click", () => {
     showModal(nArray, numNigths, Total);
-    console.log(getdate(numNigths));
   });
+});
+
+datestart.addEventListener("change", () => {
+  let endReserve = addEndReserve(datestart.value, numNigths);
+  updateDateEnd(endReserve);
 });
 
 reservebtn.addEventListener("click", () => {
@@ -66,64 +70,6 @@ reservebtn.addEventListener("click", () => {
 });
 
 exitbtn.addEventListener("click", () => {
+  resetField(name, lastname, email, phone, datestart, dateend, numroom);
   document.getElementById("modalReserved").classList.add("hidden");
 });
-
-const verifiedField = (
-  name,
-  lastname,
-  email,
-  phone,
-  datestart,
-  dateend,
-  numrooms
-) => {
-  if (!(
-      name === "" ||
-      lastname === "" ||
-      email === "" ||
-      phone === "" ||
-      datestart === "" ||
-      dateend === "" ||
-      numroom === ""
-    )) {
-    let user = new Guest(
-      name,
-      lastname,
-      email,
-      phone,
-      datestart,
-      dateend,
-      numrooms
-    );
-    console.log(user.dataGuest);
-  } else {
-    alert("No puedes dejar campos vacios");
-  }
-};
-
-const addZero = (i) => {
-  if (i < 10) {
-    i = "0" + i;
-  }
-  return i;
-};
-
-const getdate = (numNigths) => {
-  let date = new Date();
-  let dd
-  if (numNigths) {
-    dd = date.getDate() + numNigths;
-  } else {
-    dd = date.getDate();
-  }
-
-  let mm = date.getMonth() + 1;
-  let yyyy = date.getFullYear();
-
-  dd = addZero(dd);
-  mm = addZero(mm);
-
-  return yyyy + "-" + mm + "-" + dd;
-};
-console.log(getdate());

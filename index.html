@@ -103,19 +103,19 @@
                     <span class="content-name">Telefono</span>
                   </label>
                 </div>
-                <div class="form-dates-box flex-row">
+                <div class="form-dates-box flex-row" id="dates-form">
                   <div class="form-date">
                     <input
                       type="date"
                       name="date-start"
                       id="form-datestart"
-                      value=" "
+                      value=""
+                      min=""
                     />
                     <label for="date-start" class="label-name">
                       <span class="content-name">Fecha Inicio</span>
                     </label>
                   </div>
-
                   <div class="form-date">
                     <input
                       type="date"
@@ -123,6 +123,8 @@
                       autocomplete="off"
                       required
                       id="form-dateend"
+                      value=""
+                      disabled
                     />
                     <label for="date-end" class="label-name">
                       <span class="content-name">Fecha Final</span>
