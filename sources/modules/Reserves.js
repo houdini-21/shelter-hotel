@@ -22,11 +22,13 @@ class Reserves {
 
   addReserve(reservedata) {
     this._reserves.push(reservedata);
-    tableBody(reservedata);
+    this.readReserve()
   }
 
   readReserve() {
-    return this._reserves;
+    this._reserves.forEach((data) => {
+      tableBody(data);
+    });
   }
 }
 let reserve = new Reserves();
