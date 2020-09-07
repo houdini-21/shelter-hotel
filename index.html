@@ -93,13 +93,25 @@
                 </div>
                 <div class="form">
                   <input
-                    type="number"
-                    name="telefono"
+                    type="text"
+                    name="address"
+                    autocomplete="off"
+                    required
+                    id="form-address"
+                  />
+                  <label for="address" class="label-name">
+                    <span class="content-name">Direccion</span>
+                  </label>
+                </div>
+                <div class="form">
+                  <input
+                    type="tel"
+                    name="phone"
                     autocomplete="off"
                     required
                     id="form-numphone"
                   />
-                  <label for="telefono" class="label-name">
+                  <label for="phone" class="label-name">
                     <span class="content-name">Telefono</span>
                   </label>
                 </div>
@@ -107,12 +119,12 @@
                   <div class="form-date">
                     <input
                       type="date"
-                      name="date-start"
+                      name="date"
                       id="form-datestart"
                       value=""
                       min=""
                     />
-                    <label for="date-start" class="label-name">
+                    <label for="date" class="label-name">
                       <span class="content-name">Fecha Inicio</span>
                     </label>
                   </div>
@@ -126,22 +138,11 @@
                       value=""
                       disabled
                     />
+
                     <label for="date-end" class="label-name">
                       <span class="content-name">Fecha Final</span>
                     </label>
                   </div>
-                </div>
-                <div class="form">
-                  <input
-                    type="number"
-                    name="personas"
-                    autocomplete="off"
-                    required
-                    id="form-rooms"
-                  />
-                  <label for="personas" class="label-name">
-                    <span class="content-name">Cantidad Cuartos</span>
-                  </label>
                 </div>
               </form>
 

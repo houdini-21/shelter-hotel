@@ -1,12 +1,24 @@
+
 export default class Guest {
-  constructor(name, lastname, email, phone, datestart, dateend, numrooms) {
+  constructor(
+    name,
+    lastname,
+    email,
+    phone,
+    datestart,
+    dateend,
+    address,
+    rooms
+  ) {
     (this._name = name),
       (this._lastname = lastname),
       (this._phone = phone),
       (this._email = email),
       (this._datestart = datestart),
       (this._dateend = dateend),
-      (this._numrooms = numrooms);
+      (this._address = address),
+      (this._room = rooms);
+    //   new Reserves(this.dataGuest, "generar");
   }
 
   get name() {
@@ -38,11 +50,11 @@ export default class Guest {
     this._email = email;
   }
 
-  get numrooms() {
-    return this._numrooms;
+  get address() {
+    return this._address;
   }
-  set numrooms(numrooms) {
-    this._numrooms = numrooms;
+  set address(address) {
+    this._address = address;
   }
 
   get dateend() {
@@ -67,7 +79,7 @@ export default class Guest {
       email: this.email,
       datestart: this.datestart,
       dateend: this.dateend,
-      numrooms: this.numrooms,
+      address: this.address,
     };
 
     return guest;

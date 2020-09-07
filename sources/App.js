@@ -1,5 +1,5 @@
 import template from "./modules/Template.js";
-import { genCards, showModal } from "./modules/RenderTemplate.js";
+import { genCards, showModal, modalData } from "./modules/RenderTemplate.js";
 import {
   hiddenshowCards,
   minInput,
@@ -40,7 +40,7 @@ const email = document.getElementById("form-email");
 const phone = document.getElementById("form-numphone");
 const datestart = document.getElementById("form-datestart");
 const dateend = document.getElementById("form-dateend");
-const numroom = document.getElementById("form-rooms");
+const address = document.getElementById("form-address");
 const reservebtn = document.getElementById("reserve");
 const exitbtn = document.getElementById("exitbtn");
 datestart.min = getdate();
@@ -64,11 +64,12 @@ reservebtn.addEventListener("click", () => {
     phone.value,
     datestart.value,
     dateend.value,
-    numroom.value
+    address.value,
+    modalData
   );
 });
 
 exitbtn.addEventListener("click", () => {
-  resetField(name, lastname, email, phone, datestart, dateend, numroom);
+  resetField(name, lastname, email, phone, datestart, dateend, address);
   document.getElementById("modalReserved").classList.add("hidden");
 });

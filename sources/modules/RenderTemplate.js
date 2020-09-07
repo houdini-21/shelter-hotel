@@ -1,6 +1,7 @@
 import template from "./Template.js";
 
 let templategenerated = "";
+let modalData = "";
 
 const genIcons = (icons, type, label) => {
   let iconsgen = "";
@@ -94,7 +95,7 @@ const genCards = (data) => {
 };
 
 const showModal = (nArray, nigths, total) => {
-  let modalData = template[nArray];
+  modalData = template[nArray];
   let iconsRoom = genIcons(modalData.icons, "icons-label", modalData.include);
   const modalTemplate = `
   <div class="img-modal">
@@ -146,8 +147,4 @@ ${iconsRoom}
   modalid.innerHTML = modalTemplate;
 };
 
-
-export {
-  genCards,
-  showModal,
-};
+export { genCards, showModal, modalData };

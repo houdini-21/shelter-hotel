@@ -1,3 +1,7 @@
+import Guest from "./Guest.js";
+import { getdate } from "./Dates.js";
+import {NewReserve} from "./Reserves.js";
+
 const resetField = (
   name,
   lastname,
@@ -5,7 +9,7 @@ const resetField = (
   phone,
   datestart,
   dateend,
-  numroom
+  address
 ) => {
   (name.value = ""),
     (lastname.value = ""),
@@ -13,7 +17,7 @@ const resetField = (
     (phone.value = ""),
     (datestart.value = ""),
     (dateend.value = ""),
-    (numroom.value = "");
+    (address.value = "");
 };
 
 const verifiedField = (
@@ -23,7 +27,8 @@ const verifiedField = (
   phone,
   datestart,
   dateend,
-  numrooms
+  address,
+  dataRoom
 ) => {
   if (
     !(
@@ -33,9 +38,11 @@ const verifiedField = (
       phone === "" ||
       datestart === "" ||
       dateend === "" ||
-      numroom === ""
+      address === ""
     )
   ) {
+    let id = generateId(name, lastname, phone, dataRoom.name);
+    let dateReserve = getdate();
     let user = new Guest(
       name,
       lastname,
@@ -43,12 +50,22 @@ const verifiedField = (
       phone,
       datestart,
       dateend,
-      numrooms
+      address,
+      dataRoom
     );
-    console.log(user.dataGuest);
+    new NewReserve(id, dateReserve, name+' '+lastname, dataRoom.name, datestart, phone, email);
   } else {
     alert("No puedes dejar campos vacios");
   }
+};
+
+const generateId = (name, lastname, phone, rooms) => {
+  let idname = name.slice(0, 1);
+  let idlastname = lastname.slice(0, 1);
+  let idphone = phone.slice(4, 8);
+  let idroom = rooms.slice(11, 14);
+
+  return idname + idlastname + idphone + "-" + idroom;
 };
 
 export { resetField, verifiedField };
