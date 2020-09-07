@@ -1,10 +1,14 @@
 body {
   background-color: #ffffff;
+  margin: 0;
 }
 * {
   font-family: "Cereal";
 }
 
+#rooms-div {
+  margin-top: 20px;
+}
 .flex-row {
   display: flex;
   flex-direction: row;
@@ -59,6 +63,33 @@ input.nigths-input {
   background-color: #fafafa;
   border: 0;
   font-size: 15px;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 55px;
+  background-color: #ffffff;
+  filter: drop-shadow(1px 1px 11px rgba(20, 20, 20, 0.2));
+}
+
+.logo-img {
+  margin: 10px;
+  width: 40px;
+}
+
+.nav-item {
+  text-decoration: none;
+  color: #ff5a5f;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 18px 18px;
+}
+.nav-item:hover {
+  background-color: #ff5a5f;
+  color: #ffffff;
 }
 
 .btn-days {

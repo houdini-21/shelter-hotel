@@ -53,7 +53,7 @@ const verifiedField = (
       address,
       dataRoom
     );
-    new NewReserve(id, dateReserve, name+' '+lastname, dataRoom.name, datestart, phone, email);
+    new NewReserve(id, dateReserve, user.name+' '+user.lastname, dataRoom.name, user.datestart, user.phone, user.email);
   } else {
     alert("No puedes dejar campos vacios");
   }

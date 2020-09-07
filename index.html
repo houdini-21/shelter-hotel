@@ -30,150 +30,162 @@
   </head>
   <body>
     <main>
-      <section id="select-rooms-and-days-stay" class="flex-row">
-        <div class="select-rooms">
-          <select id="selector">
-            <option value="0">Seleccionar habitacion</option>
-            <option value="room1">Habitacion Individual</option>
-            <option value="room2">Habitacion Doble</option>
-            <option value="room3">Habitacion Familiar</option>
-            <option value="room4">Habitacion Gold</option>
-            <option value="room5">Habitacion VIP</option>
-          </select>
+      <nav class="navbar">
+        <div class="logo">
+          <img class="logo-img" src="./sources/logo.svg" alt="Shelter" />
         </div>
-      </section>
+        <div class="items">
+          <a class="nav-item" href="">Habitaciones</a>
+          <a class="nav-item" href="">Reservas</a>
+          <a class="nav-item" href="">About Us</a>
+        </div>
+      </nav>
+      <section id="rooms-div">
+        <section id="select-rooms-and-days-stay" class="flex-row">
+          <div class="select-rooms">
+            <select id="selector">
+              <option value="0">Seleccionar habitacion</option>
+              <option value="room1">Habitacion Individual</option>
+              <option value="room2">Habitacion Doble</option>
+              <option value="room3">Habitacion Familiar</option>
+              <option value="room4">Habitacion Gold</option>
+              <option value="room5">Habitacion VIP</option>
+            </select>
+          </div>
+        </section>
 
-      <section
-        id="modalReserved"
-        class="modal-scafold flex-column flex-center hidden"
-      >
-        <div class="modal flex-row">
-          <div class="flex-column flex-center">
-            <h2 class="title-modal">Detalles Habitacion</h2>
-            <div class="content-modal flex-row" id="content-modal-id"></div>
+        <section
+          id="modalReserved"
+          class="modal-scafold flex-column flex-center hidden"
+        >
+          <div class="modal flex-row">
+            <div class="flex-column flex-center">
+              <h2 class="title-modal">Detalles Habitacion</h2>
+              <div class="content-modal flex-row" id="content-modal-id"></div>
 
-            <div class="form-modal flex-column flex-center" id="form-div">
-              <h2 class="title-modal">Formulario Reserva</h2>
-              <form class="form-reserve flex-row flex-center">
-                <div class="form">
-                  <input
-                    type="text"
-                    name="name"
-                    autocomplete="off"
-                    required
-                    id="form-name"
-                  />
-                  <label for="name" class="label-name">
-                    <span class="content-name">Nombre</span>
-                  </label>
-                </div>
-                <div class="form">
-                  <input
-                    type="text"
-                    name="apellido"
-                    autocomplete="off"
-                    required
-                    id="form-lastname"
-                  />
-                  <label for="apellido" class="label-name">
-                    <span class="content-name">Apellido</span>
-                  </label>
-                </div>
-                <div class="form">
-                  <input
-                    type="email"
-                    name="mail"
-                    autocomplete="off"
-                    required
-                    id="form-email"
-                  />
-                  <label for="mail" class="label-name">
-                    <span class="content-name">Email</span>
-                  </label>
-                </div>
-                <div class="form">
-                  <input
-                    type="text"
-                    name="address"
-                    autocomplete="off"
-                    required
-                    id="form-address"
-                  />
-                  <label for="address" class="label-name">
-                    <span class="content-name">Direccion</span>
-                  </label>
-                </div>
-                <div class="form">
-                  <input
-                    type="tel"
-                    name="phone"
-                    autocomplete="off"
-                    required
-                    id="form-numphone"
-                  />
-                  <label for="phone" class="label-name">
-                    <span class="content-name">Telefono</span>
-                  </label>
-                </div>
-                <div class="form-dates-box flex-row" id="dates-form">
-                  <div class="form-date">
+              <div class="form-modal flex-column flex-center" id="form-div">
+                <h2 class="title-modal">Formulario Reserva</h2>
+                <form class="form-reserve flex-row flex-center">
+                  <div class="form">
                     <input
-                      type="date"
-                      name="date"
-                      id="form-datestart"
-                      value=""
-                      min=""
-                    />
-                    <label for="date" class="label-name">
-                      <span class="content-name">Fecha Inicio</span>
-                    </label>
-                  </div>
-                  <div class="form-date">
-                    <input
-                      type="date"
-                      name="date-end"
+                      type="text"
+                      name="name"
                       autocomplete="off"
                       required
-                      id="form-dateend"
-                      value=""
-                      disabled
+                      id="form-name"
                     />
-
-                    <label for="date-end" class="label-name">
-                      <span class="content-name">Fecha Final</span>
+                    <label for="name" class="label-name">
+                      <span class="content-name">Nombre</span>
                     </label>
                   </div>
+                  <div class="form">
+                    <input
+                      type="text"
+                      name="apellido"
+                      autocomplete="off"
+                      required
+                      id="form-lastname"
+                    />
+                    <label for="apellido" class="label-name">
+                      <span class="content-name">Apellido</span>
+                    </label>
+                  </div>
+                  <div class="form">
+                    <input
+                      type="email"
+                      name="mail"
+                      autocomplete="off"
+                      required
+                      id="form-email"
+                    />
+                    <label for="mail" class="label-name">
+                      <span class="content-name">Email</span>
+                    </label>
+                  </div>
+                  <div class="form">
+                    <input
+                      type="text"
+                      name="address"
+                      autocomplete="off"
+                      required
+                      id="form-address"
+                    />
+                    <label for="address" class="label-name">
+                      <span class="content-name">Direccion</span>
+                    </label>
+                  </div>
+                  <div class="form">
+                    <input
+                      type="tel"
+                      name="phone"
+                      autocomplete="off"
+                      required
+                      id="form-numphone"
+                    />
+                    <label for="phone" class="label-name">
+                      <span class="content-name">Telefono</span>
+                    </label>
+                  </div>
+                  <div class="form-dates-box flex-row" id="dates-form">
+                    <div class="form-date">
+                      <input
+                        type="date"
+                        name="date"
+                        id="form-datestart"
+                        value=""
+                        min=""
+                      />
+                      <label for="date" class="label-name">
+                        <span class="content-name">Fecha Inicio</span>
+                      </label>
+                    </div>
+                    <div class="form-date">
+                      <input
+                        type="date"
+                        name="date-end"
+                        autocomplete="off"
+                        required
+                        id="form-dateend"
+                        value=""
+                        disabled
+                      />
+
+                      <label for="date-end" class="label-name">
+                        <span class="content-name">Fecha Final</span>
+                      </label>
+                    </div>
+                  </div>
+                </form>
+
+                <div class="box-btn">
+                  <button type="submit" id="reserve" class="btn-reserve">
+                    Aceptar
+                  </button>
                 </div>
-              </form>
+              </div>
 
-              <div class="box-btn">
-                <button type="submit" id="reserve" class="btn-reserve">
-                  Aceptar
-                </button>
+              <div class="container-success hidden" id="reserve-sucess">
+                <div class="tittle">
+                  <h2 class="titulo-modal">
+                    Tu reserva fue finalizada con exito
+                  </h2>
+                </div>
+                <div class="container-success-reserve">
+                  <img class="success-img" src="./sources/success.svg" />
+                </div>
               </div>
             </div>
-
-            <div class="container-success hidden" id="reserve-sucess">
-              <div class="tittle">
-                <h2 class="titulo-modal">
-                  Tu reserva fue finalizada con exito
-                </h2>
-              </div>
-              <div class="container-success-reserve">
-                <img class="success-img" src="./sources/success.svg" />
-              </div>
+            <div class="exit-modal" id="exitbtn">
+              <i class="far fa-times"></i>
             </div>
           </div>
-          <div class="exit-modal" id="exitbtn">
-            <i class="far fa-times"></i>
-          </div>
-        </div>
+        </section>
+
+        <section
+          id="roomsSection"
+          class="section-rooms-card flex-column flex-center"
+        ></section>
       </section>
-
-      <section
-        id="roomsSection"
-        class="section-rooms-card flex-column flex-center"
-      ></section>
     </main>
     <script type="module" src="./sources/App.js"></script>
     <!--<script src"./sources/scriptPOO.js></script>"-->
