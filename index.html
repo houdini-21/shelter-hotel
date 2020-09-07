@@ -35,12 +35,12 @@
           <img class="logo-img" src="./sources/logo.svg" alt="Shelter" />
         </div>
         <div class="items">
-          <a class="nav-item" href="">Habitaciones</a>
-          <a class="nav-item" href="">Reservas</a>
-          <a class="nav-item" href="">About Us</a>
+          <a class="nav-item" href="#" id="rooms-div">Habitaciones</a>
+          <a class="nav-item" href="#" id="reserve-div">Reservas</a>
+          <a class="nav-item" href="#" id="about-btn">About Us</a>
         </div>
       </nav>
-      <section id="rooms-div">
+      <section id="rooms-div" class="div">
         <section id="select-rooms-and-days-stay" class="flex-row">
           <div class="select-rooms">
             <select id="selector">
@@ -185,6 +185,28 @@
           id="roomsSection"
           class="section-rooms-card flex-column flex-center"
         ></section>
+      </section>
+
+      <section id="reserve-div" class="div hidden">
+        <section class="flex-column flex-center">
+          <table id="reserves-table">
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Fecha Reserva</th>
+                <th>Nombre Huesped</th>
+                <th>Habitacion</th>
+                <th>Fecha Inicio</th>
+                <th>Telefono</th>
+                <th>Email</th>
+              </tr>
+            </thead>
+            <tbody id="body-table">
+
+
+            </tbody>
+          </table>
+        </section>
       </section>
     </main>
     <script type="module" src="./sources/App.js"></script>

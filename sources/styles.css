@@ -6,7 +6,8 @@ body {
   font-family: "Cereal";
 }
 
-#rooms-div {
+#rooms-div.div,
+#reserve-div.div {
   margin-top: 20px;
 }
 .flex-row {
@@ -514,4 +515,62 @@ input.nigths-input {
   100% {
     opacity: 1;
   }
+}
+
+#reserves-table {
+  border-collapse: separate;
+  width: 85%;
+  text-align: center;
+  border-spacing: 0px 3px;
+}
+#reserves-table th {
+  font-weight: 400;
+}
+
+#reserves-table td {
+  font-weight: 300;
+}
+
+table thead,
+table tbody {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+table th:nth-child(1),
+table td:nth-child(1) {
+  border-radius: 5px 0px 0px 5px;
+}
+table th:nth-last-child(1),
+table td:nth-last-child(1) {
+  border-radius: 0px 5px 5px 0px;
+}
+
+#reserves-table td,
+#reserves-table th {
+  padding: 8px;
+}
+
+#reserves-table tr:nth-child(even) {
+  background-color: #ffeaeb;
+}
+#reserves-table tr:nth-child(odd) {
+  background-color: #ffd6d7;
+}
+
+tr {
+  margin-top: 20px;
+}
+
+#reserves-table td,
+#reserves-table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+#reserves-table th {
+  text-align: center;
+  background-color: #ff5a5f;
+  color: white;
 }

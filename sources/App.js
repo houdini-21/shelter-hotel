@@ -6,6 +6,7 @@ import {
   plusInput,
   numNigths,
   Total,
+  hiddendiv,
 } from "./modules/BtnsFuntional.js";
 import { getdate, updateDateEnd, addEndReserve } from "./modules/Dates.js";
 import { resetField, verifiedField } from "./modules/Validations.js";
@@ -43,6 +44,14 @@ const dateend = document.getElementById("form-dateend");
 const address = document.getElementById("form-address");
 const reservebtn = document.getElementById("reserve");
 const exitbtn = document.getElementById("exitbtn");
+const itemsnavbar = document.querySelectorAll(".nav-item");
+
+itemsnavbar.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    hiddendiv(btn.id)
+  });
+});
+
 datestart.min = getdate();
 
 btnAgreeRoom.forEach((btn, nArray) => {

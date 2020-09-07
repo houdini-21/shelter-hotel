@@ -147,4 +147,6 @@ ${iconsRoom}
   modalid.innerHTML = modalTemplate;
 };
 
-export { genCards, showModal, modalData };
+
+
+export { genCards, showModal, modalData};

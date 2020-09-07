@@ -1,6 +1,16 @@
 let numNigths = 1;
 let Total = 0;
 
+const hiddendiv = (div) => {
+  const itemsnavbar = document.querySelectorAll(".div");
+  for (let i = 0; i < itemsnavbar.length; i++) {
+    let itemdiv = itemsnavbar[i];
+    div === itemdiv.id
+      ? (showElement(itemdiv), console.log("show", itemdiv))
+      : (hiddeElement(itemdiv), console.log("hidde", itemdiv));
+  }
+};
+
 const hiddenshowCards = (optionselect) => {
   let cardRooms = document.querySelectorAll(".card-room");
   let btnPlusMinus = document.querySelectorAll("#nigths-btn");
@@ -64,5 +74,4 @@ const plusInput = (nArray) => {
   subCantNights[nArray].innerText = `Por ${numNigths} Noche(s)`;
 };
 
-
-export { hiddenshowCards, minInput, plusInput, numNigths, Total };
+export { hiddenshowCards, minInput, plusInput, numNigths, Total, hiddendiv };

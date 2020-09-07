@@ -1,3 +1,20 @@
+let templateTable = "";
+
+const tableBody = (data) => {
+  const tabletemp = `
+  <tr>
+  <td>${data.id}</td>
+  <td>${data.dateReserve}</td>
+  <td>${data.nameGuest}</td>
+  <td>${data.roomdata}</td>
+  <td>${data.datestart}</td>
+  <td>${data.phone}</td>
+  <td>${data.email}</td>
+</tr>`;
+  templateTable += tabletemp;
+  document.getElementById("body-table").innerHTML = templateTable;
+};
+
 class Reserves {
   constructor() {
     this._reserves = [];
@@ -5,7 +22,7 @@ class Reserves {
 
   addReserve(reservedata) {
     this._reserves.push(reservedata);
-    console.log(this._reserves);
+    tableBody(reservedata);
   }
 
   readReserve() {
