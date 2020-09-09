@@ -1,6 +1,10 @@
 import Guest from "./Guest.js";
-import { getdate } from "./Dates.js";
-import {NewReserve} from "./Reserves.js";
+import {
+  getdate
+} from "./Dates.js";
+import {
+  NewReserve
+} from "./Reserves.js";
 
 const resetField = (
   name,
@@ -12,12 +16,12 @@ const resetField = (
   address
 ) => {
   (name.value = ""),
-    (lastname.value = ""),
-    (email.value = ""),
-    (phone.value = ""),
-    (datestart.value = ""),
-    (dateend.value = ""),
-    (address.value = "");
+  (lastname.value = ""),
+  (email.value = ""),
+  (phone.value = ""),
+  (datestart.value = ""),
+  (dateend.value = ""),
+  (address.value = "");
 };
 
 const verifiedField = (
@@ -30,8 +34,7 @@ const verifiedField = (
   address,
   dataRoom
 ) => {
-  if (
-    !(
+  if (!(
       name === "" ||
       lastname === "" ||
       email === "" ||
@@ -39,8 +42,7 @@ const verifiedField = (
       datestart === "" ||
       dateend === "" ||
       address === ""
-    )
-  ) {
+    )) {
     let id = generateId(name, lastname, phone, dataRoom.name);
     let dateReserve = getdate();
     let user = new Guest(
@@ -53,7 +55,13 @@ const verifiedField = (
       address,
       dataRoom
     );
-    new NewReserve(id, dateReserve, user.name+' '+user.lastname, dataRoom.name, user.datestart, user.phone, user.email);
+    new NewReserve(id, dateReserve, user.name + ' ' + user.lastname, dataRoom.name, user.datestart, user.phone, user.email);
+
+    let sucessdiv = document.getElementById("reserve-sucess");
+    let reservesdiv = document.getElementById("reserves-data")
+
+    sucessdiv.classList.replace('hidden', 'fadeIn')
+    reservesdiv.classList.add('hidden')
   } else {
     alert("No puedes dejar campos vacios");
   }
@@ -68,4 +76,7 @@ const generateId = (name, lastname, phone, rooms) => {
   return idname + idlastname + idphone + "-" + idroom;
 };
 
-export { resetField, verifiedField };
+export {
+  resetField,
+  verifiedField
+};

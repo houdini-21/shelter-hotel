@@ -1,5 +1,9 @@
 import template from "./modules/Template.js";
-import { genCards, showModal, modalData } from "./modules/RenderTemplate.js";
+import {
+  genCards,
+  showModal,
+  modalData
+} from "./modules/RenderTemplate.js";
 import {
   hiddenshowCards,
   minInput,
@@ -8,8 +12,15 @@ import {
   Total,
   hiddendiv,
 } from "./modules/BtnsFuntional.js";
-import { getdate, updateDateEnd, addEndReserve } from "./modules/Dates.js";
-import { resetField, verifiedField } from "./modules/Validations.js";
+import {
+  getdate,
+  updateDateEnd,
+  addEndReserve
+} from "./modules/Dates.js";
+import {
+  resetField,
+  verifiedField
+} from "./modules/Validations.js";
 
 template.forEach((data) => {
   genCards(data);
@@ -20,7 +31,7 @@ selector.addEventListener("change", () => {
   hiddenshowCards(selector.value);
 });
 const btnAddDays = document.querySelectorAll("#plus");
-const btnMinDays = document.querySelectorAll("#min");
+const btnMinDays = document.querySelectorAll("#minus");
 const btnAgreeRoom = document.querySelectorAll(".btn-agree");
 
 btnAddDays.forEach((btn, nArray) => {
@@ -56,6 +67,11 @@ datestart.min = getdate();
 
 btnAgreeRoom.forEach((btn, nArray) => {
   btn.addEventListener("click", () => {
+    let sucessdiv = document.getElementById("reserve-sucess");
+    let reservesdiv = document.getElementById("reserves-data")
+
+    sucessdiv.classList.add('hidden')
+    reservesdiv.classList.remove('hidden')
     showModal(nArray, numNigths, Total);
   });
 });

@@ -19,17 +19,23 @@ const getdate = () => {
 };
 
 const addEndReserve = (datestart, numNigths) => {
-  var dateparts = datestart.split("-").map((d) => parseInt(d));
+  let dateparts = datestart.split("-").map((d) => parseInt(d));
 
-  let day = dateparts[2] + numNigths;
+  let day = dateparts[2];
   let month = dateparts[1];
   let year = dateparts[0];
+  
+  let date = new Date(year, month - 1, day + numNigths);
+  day = date.getDate();
+  month = date.getMonth() + 1;
+  year = date.getFullYear();
 
   day = addZero(day);
   month = addZero(month);
 
   return year + "-" + month + "-" + day;
 };
+
 
 const updateDateEnd = (date) => {
   document.getElementById("form-dateend").value = date;

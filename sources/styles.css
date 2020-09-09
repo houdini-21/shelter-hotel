@@ -287,8 +287,8 @@ input.nigths-input {
 
 .exit-modal {
   position: absolute;
-  margin-left: 975px;
-  margin-top: 10px;
+  margin-left: 970px;
+  margin-bottom: 525px;
 }
 
 .detalles-habitacion-modal {
@@ -454,11 +454,8 @@ input.nigths-input {
   width: 65%;
   margin: 1em;
 }
-.container-success-reserve {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
+
 
 .success-img {
   height: 375px;

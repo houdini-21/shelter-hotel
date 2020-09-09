@@ -6,8 +6,8 @@ const hiddendiv = (div) => {
   for (let i = 0; i < itemsnavbar.length; i++) {
     let itemdiv = itemsnavbar[i];
     div === itemdiv.id
-      ? (showElement(itemdiv), console.log("show", itemdiv))
-      : (hiddeElement(itemdiv), console.log("hidde", itemdiv));
+      ? (showElement(itemdiv))
+      : (hiddeElement(itemdiv));
   }
 };
 
