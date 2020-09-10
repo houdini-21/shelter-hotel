@@ -1,4 +1,3 @@
-
 let templateTable = "";
 const tableBody = (data) => {
   const tabletemp = `
@@ -22,21 +21,20 @@ class Reserves {
 
   addReserve(reservedata) {
     this._reserves.push(reservedata);
-    tableBody(reservedata)
+    tableBody(reservedata);
   }
-
 }
 let reserve = new Reserves();
 
 class NewReserve {
   constructor(id, dateReserve, nameGuest, roomdata, datestart, phone, email) {
     (this._id = id),
-    (this._dateReserve = dateReserve),
-    (this._nameGuest = nameGuest),
-    (this._roomdata = roomdata),
-    (this._datestart = datestart),
-    (this._phone = phone),
-    (this._email = email);
+      (this._dateReserve = dateReserve),
+      (this._nameGuest = nameGuest),
+      (this._roomdata = roomdata),
+      (this._datestart = datestart),
+      (this._phone = phone),
+      (this._email = email);
 
     reserve.addReserve(this.dataReserve);
   }
@@ -110,7 +108,4 @@ class NewReserve {
   }
 }
 
-export {
-  NewReserve,
-  Reserves
-};
+export { NewReserve, Reserves };

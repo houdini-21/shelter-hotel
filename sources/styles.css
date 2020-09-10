@@ -102,7 +102,8 @@ input.nigths-input {
   border: none;
   cursor: pointer;
 }
-.btn-days:focus {
+.btn-days:focus,
+.btn-agree:focus {
   outline: none;
 }
 .minus {
@@ -455,8 +456,6 @@ input.nigths-input {
   margin: 1em;
 }
 
-
-
 .success-img {
   height: 375px;
   margin: 2em;
@@ -570,4 +569,14 @@ tr {
   text-align: center;
   background-color: #ff5a5f;
   color: white;
+}
+
+.aboutDescription {
+  width: 80%;
+}
+
+.aboutDescription p {
+  font-size: 18px;
+  color: #404040;
+  font-weight: 100;
 }

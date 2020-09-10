@@ -7,7 +7,7 @@ export default class Guest {
     phone,
     datestart,
     dateend,
-    address,
+    numpeople,
     rooms
   ) {
     (this._name = name),
@@ -16,7 +16,7 @@ export default class Guest {
       (this._email = email),
       (this._datestart = datestart),
       (this._dateend = dateend),
-      (this._address = address),
+      (this._numpeople = numpeople),
       (this._room = rooms);
     //   new Reserves(this.dataGuest, "generar");
   }
@@ -50,11 +50,11 @@ export default class Guest {
     this._email = email;
   }
 
-  get address() {
-    return this._address;
+  get numpeople() {
+    return this._numpeople;
   }
-  set address(address) {
-    this._address = address;
+  set numpeople(numpeople) {
+    this._numpeople = numpeople;
   }
 
   get dateend() {
@@ -79,7 +79,7 @@ export default class Guest {
       email: this.email,
       datestart: this.datestart,
       dateend: this.dateend,
-      address: this.address,
+      numpeople: this.numpeople,
     };
 
     return guest;

@@ -1,10 +1,6 @@
 import Guest from "./Guest.js";
-import {
-  getdate
-} from "./Dates.js";
-import {
-  NewReserve
-} from "./Reserves.js";
+import { getdate } from "./Dates.js";
+import { NewReserve } from "./Reserves.js";
 
 const resetField = (
   name,
@@ -13,15 +9,15 @@ const resetField = (
   phone,
   datestart,
   dateend,
-  address
+  numpeople
 ) => {
   (name.value = ""),
-  (lastname.value = ""),
-  (email.value = ""),
-  (phone.value = ""),
-  (datestart.value = ""),
-  (dateend.value = ""),
-  (address.value = "");
+    (lastname.value = ""),
+    (email.value = ""),
+    (phone.value = ""),
+    (datestart.value = ""),
+    (dateend.value = ""),
+    (numpeople.value = "");
 };
 
 const verifiedField = (
@@ -31,18 +27,20 @@ const verifiedField = (
   phone,
   datestart,
   dateend,
-  address,
+  numpeople,
   dataRoom
 ) => {
-  if (!(
+  if (
+    !(
       name === "" ||
       lastname === "" ||
       email === "" ||
       phone === "" ||
       datestart === "" ||
       dateend === "" ||
-      address === ""
-    )) {
+      numpeople === ""
+    )
+  ) {
     let id = generateId(name, lastname, phone, dataRoom.name);
     let dateReserve = getdate();
     let user = new Guest(
@@ -52,16 +50,24 @@ const verifiedField = (
       phone,
       datestart,
       dateend,
-      address,
+      numpeople,
       dataRoom
     );
-    new NewReserve(id, dateReserve, user.name + ' ' + user.lastname, dataRoom.name, user.datestart, user.phone, user.email);
+    new NewReserve(
+      id,
+      dateReserve,
+      user.name + " " + user.lastname,
+      dataRoom.name,
+      user.datestart,
+      user.phone,
+      user.email
+    );
 
     let sucessdiv = document.getElementById("reserve-sucess");
-    let reservesdiv = document.getElementById("reserves-data")
+    let reservesdiv = document.getElementById("reserves-data");
 
-    sucessdiv.classList.replace('hidden', 'fadeIn')
-    reservesdiv.classList.add('hidden')
+    sucessdiv.classList.replace("hidden", "fadeIn");
+    reservesdiv.classList.add("hidden");
   } else {
     alert("No puedes dejar campos vacios");
   }
@@ -76,7 +82,4 @@ const generateId = (name, lastname, phone, rooms) => {
   return idname + idlastname + idphone + "-" + idroom;
 };
 
-export {
-  resetField,
-  verifiedField
-};
+export { resetField, verifiedField };

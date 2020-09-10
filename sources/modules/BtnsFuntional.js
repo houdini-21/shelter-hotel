@@ -31,7 +31,7 @@ const hiddeElement = (div) => {
 };
 
 const showElement = (div) => {
-  div.classList.remove("hidden");
+  div.classList.replace("hidden", "fadeIn");
 };
 
 const reset = (nArray) => {

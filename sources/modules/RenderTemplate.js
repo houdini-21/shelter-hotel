@@ -143,7 +143,7 @@ ${iconsRoom}
   </div>
 </div>`;
   let modalid = document.getElementById("content-modal-id");
-  document.getElementById("modalReserved").classList.remove("hidden");
+  document.getElementById("modalReserved").classList.replace("hidden", "fadeIn");
   modalid.innerHTML = modalTemplate;
 };
 
