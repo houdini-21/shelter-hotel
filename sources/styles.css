@@ -524,6 +524,9 @@ input.nigths-input {
   100% {
     opacity: 1;
   }
+<<<<<<< HEAD
+}
+=======
 }
 
 #reserves-table {
@@ -593,3 +596,4 @@ tr {
   color: #404040;
   font-weight: 100;
 }
+>>>>>>> houdini's-lab
