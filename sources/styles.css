@@ -60,15 +60,6 @@ input[type="number"].nigths-input {
 
 input.nigths-input {
   margin: 0;
-<<<<<<< HEAD
-  font-size: 12px;
-  margin-left: 1em;
-  color: #fafafa;
-  background-color: #ff5a5f;
-  padding: 5px;
-  font-weight: 400;
-  border-radius: 5px;
-=======
   outline: none;
   text-align: center;
   width: 35px;
@@ -76,7 +67,6 @@ input.nigths-input {
   background-color: #fafafa;
   border: 0;
   font-size: 15px;
->>>>>>> houdini's-lab
 }
 
 .navbar {
@@ -523,9 +513,6 @@ input.nigths-input {
   100% {
     opacity: 1;
   }
-<<<<<<< HEAD
-}
-=======
 }
 
 #reserves-table {
@@ -595,4 +582,3 @@ tr {
   color: #404040;
   font-weight: 100;
 }
->>>>>>> houdini's-lab
