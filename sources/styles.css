@@ -54,6 +54,9 @@ select::-ms-expand {
   -webkit-appearance: none;
   appearance: none;
 }
+input[type="number"].nigths-input {
+  -moz-appearance: textfield;
+}
 
 input.nigths-input {
   margin: 0;

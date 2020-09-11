@@ -11,6 +11,7 @@ import {
 import { getdate, updateDateEnd, addEndReserve } from "./modules/Dates.js";
 import { resetField, verifiedField } from "./modules/Validations.js";
 
+
 template.forEach((data) => {
   genCards(data);
 });
@@ -42,7 +43,7 @@ const email = document.getElementById("form-email");
 const phone = document.getElementById("form-numphone");
 const datestart = document.getElementById("form-datestart");
 const dateend = document.getElementById("form-dateend");
-const numpeople = document.getElementById("form-numPeople");
+const address = document.getElementById("form-address");
 const reservebtn = document.getElementById("reserve");
 const exitbtn = document.getElementById("exitbtn");
 const itemsnavbar = document.querySelectorAll(".nav-item");
@@ -79,12 +80,12 @@ reservebtn.addEventListener("click", () => {
     phone.value,
     datestart.value,
     dateend.value,
-    numpeople.value,
+    address.value,
     modalData
   );
 });
 
 exitbtn.addEventListener("click", () => {
-  resetField(name, lastname, email, phone, datestart, dateend, numpeople);
+  resetField(name, lastname, email, phone, datestart, dateend, address);
   document.getElementById("modalReserved").classList.add("hidden");
 });

@@ -1,12 +1,13 @@
 let templateTable = "";
+
 const tableBody = (data) => {
   const tabletemp = `
   <tr>
   <td>${data.id}</td>
-  <td>${data.dateReserve}</td>
+  <td>${data.datestart}</td>
+  <td>${data.dateend}</td>
   <td>${data.nameGuest}</td>
   <td>${data.roomdata}</td>
-  <td>${data.datestart}</td>
   <td>${data.phone}</td>
   <td>${data.email}</td>
 </tr>`;
@@ -24,19 +25,26 @@ class Reserves {
     tableBody(reservedata);
   }
 }
-let reserve = new Reserves();
 
 class NewReserve {
-  constructor(id, dateReserve, nameGuest, roomdata, datestart, phone, email) {
+  constructor(
+    id,
+    datestart,
+    dateend,
+    nameGuest,
+    roomdata,
+    phone,
+    email
+  ) {
     (this._id = id),
-      (this._dateReserve = dateReserve),
+      (this._datestart = datestart),
+      (this._dateend = dateend),
       (this._nameGuest = nameGuest),
       (this._roomdata = roomdata),
-      (this._datestart = datestart),
       (this._phone = phone),
       (this._email = email);
 
-    reserve.addReserve(this.dataReserve);
+    new Reserves().addReserve(this.dataReserve);
   }
 
   set id(id) {
@@ -47,12 +55,12 @@ class NewReserve {
     return this._id;
   }
 
-  set dateReserve(dateReserve) {
-    this._dateReserve = dateReserve;
+  set datestart(datestart) {
+    this._datestart = datestart;
   }
 
-  get dateReserve() {
-    return this._dateReserve;
+  get datestart() {
+    return this._datestart;
   }
 
   set nameGuest(nameGuest) {
@@ -78,6 +86,13 @@ class NewReserve {
     return this._datestart;
   }
 
+  set dateend(dateend) {
+    this._dateend = dateend;
+  }
+
+  get dateend() {
+    return this._dateend;
+  }
   set phone(phone) {
     this._phone = phone;
   }
@@ -97,15 +112,14 @@ class NewReserve {
   get dataReserve() {
     const data = {
       id: this.id,
-      dateReserve: this.dateReserve,
+      datestart: this.datestart,
+      dateend: this.dateend,
       nameGuest: this.nameGuest,
       roomdata: this.roomdata,
-      datestart: this.datestart,
       phone: this.phone,
       email: this.email,
     };
     return data;
   }
 }
-
-export { NewReserve, Reserves };
+export { NewReserve };

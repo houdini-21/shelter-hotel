@@ -8,7 +8,7 @@ const addZero = (i) => {
 const getdate = () => {
   let date = new Date();
 
-  let dd = date.getDate();
+  let dd = date.getDate()+1;
   let mm = date.getMonth() + 1;
   let yyyy = date.getFullYear();
 

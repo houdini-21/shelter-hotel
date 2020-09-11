@@ -1,3 +1,15 @@
+class Guests {
+  constructor() {
+    this._guests = [];
+  }
+
+  newGuest(guestdata) {
+    this._guests.push(guestdata);
+  }
+  showGuests() {
+    return this._guests;
+  }
+}
 
 export default class Guest {
   constructor(
@@ -7,7 +19,7 @@ export default class Guest {
     phone,
     datestart,
     dateend,
-    numpeople,
+    address,
     rooms
   ) {
     (this._name = name),
@@ -16,9 +28,9 @@ export default class Guest {
       (this._email = email),
       (this._datestart = datestart),
       (this._dateend = dateend),
-      (this._numpeople = numpeople),
+      (this._address = address),
       (this._room = rooms);
-    //   new Reserves(this.dataGuest, "generar");
+    new Guests().newGuest(this.dataGuest);
   }
 
   get name() {
@@ -50,11 +62,11 @@ export default class Guest {
     this._email = email;
   }
 
-  get numpeople() {
-    return this._numpeople;
+  get address() {
+    return this._address;
   }
-  set numpeople(numpeople) {
-    this._numpeople = numpeople;
+  set address(address) {
+    this._address = address;
   }
 
   get dateend() {
@@ -71,6 +83,14 @@ export default class Guest {
     this._datestart = date;
   }
 
+  set room(room) {
+    this._room = room;
+  }
+
+  get room() {
+    return this._room;
+  }
+
   get dataGuest() {
     const guest = {
       name: this.name,
@@ -79,7 +99,8 @@ export default class Guest {
       email: this.email,
       datestart: this.datestart,
       dateend: this.dateend,
-      numpeople: this.numpeople,
+      address: this.address,
+      room: this._room,
     };
 
     return guest;

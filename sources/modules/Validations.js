@@ -9,7 +9,7 @@ const resetField = (
   phone,
   datestart,
   dateend,
-  numpeople
+  address
 ) => {
   (name.value = ""),
     (lastname.value = ""),
@@ -17,7 +17,7 @@ const resetField = (
     (phone.value = ""),
     (datestart.value = ""),
     (dateend.value = ""),
-    (numpeople.value = "");
+    (address.value = "");
 };
 
 const verifiedField = (
@@ -27,7 +27,7 @@ const verifiedField = (
   phone,
   datestart,
   dateend,
-  numpeople,
+  address,
   dataRoom
 ) => {
   if (
@@ -38,11 +38,21 @@ const verifiedField = (
       phone === "" ||
       datestart === "" ||
       dateend === "" ||
-      numpeople === ""
+      address === ""
     )
   ) {
-    let id = generateId(name, lastname, phone, dataRoom.name);
-    let dateReserve = getdate();
+    let roomGuest = {
+      id: dataRoom.id,
+      name: dataRoom.name,
+      description: dataRoom.description,
+      img: dataRoom.img,
+      price: dataRoom.price,
+      numbeds: dataRoom.numbeds,
+      address: dataRoom.address,
+      icons: dataRoom.icons,
+      include: dataRoom.include,
+    };
+
     let user = new Guest(
       name,
       lastname,
@@ -50,15 +60,23 @@ const verifiedField = (
       phone,
       datestart,
       dateend,
-      numpeople,
-      dataRoom
+      address,
+      roomGuest
     );
+
+    let id = generateId(
+      user.name,
+      user.lastname,
+      user.phone,
+      dataRoom.name
+    );
+
     new NewReserve(
       id,
-      dateReserve,
-      user.name + " " + user.lastname,
-      dataRoom.name,
       user.datestart,
+      user.dateend,
+      user.name + " " + user.lastname,
+      user.room.name,
       user.phone,
       user.email
     );
