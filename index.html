@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./sources/fonts.css" type="text/css" />
-
     <link rel="stylesheet" href="./sources/styles.css" type="text/css" />
     <link rel="stylesheet" href="./sources/icons/css/fontawesome.css" />
     <link rel="stylesheet" href="./sources/icons/css/regular.css" />
@@ -26,28 +25,34 @@
       href="./sources/favicon/favicon-16x16.png"
     />
     <link rel="manifest" href="./sources/favicon/site.webmanifest" />
-    <title>Shelter</title>
+    <title>Shelter Hotel</title>
   </head>
   <body>
     <main>
-      <section id="selector-habitacion">
-        <div class="selector-habitacion">
-          <select id="selector">
-            <option value="0">Seleccionar habitacion</option>
-            <option value="habitacion1">Habitacion Individual</option>
-            <option value="habitacion2">Habitacion Doble</option>
-            <option value="habitacion3">Habitacion Familiar</option>
-            <option value="habitacion4">Habitacion Gold</option>
-            <option value="habitacion5">Habitacion VIP</option>
-          </select>
+      <nav class="navbar">
+        <div class="logo">
+          <img class="logo-img" src="./sources/logo.svg" alt="Shelter" />
         </div>
-      </section>
+        <div class="items">
+          <a class="nav-item" href="#" id="rooms-div">Habitaciones</a>
+          <a class="nav-item" href="#" id="reserve-div">Reservas</a>
+          <a class="nav-item" href="#" id="about-div">About Us</a>
+        </div>
+      </nav>
 
-      <section id="myModal" class="modal hidden">
-        <article class="modal-container">
-          <div class="exit-btn">
-            <i class="far fa-times" id="cerrar"></i>
+      <section id="rooms-div" class="div">
+        <section id="select-rooms-and-days-stay" class="flex-row">
+          <div class="select-rooms">
+            <select id="selector">
+              <option value="0">Seleccionar habitacion</option>
+              <option value="room1">Habitacion Individual</option>
+              <option value="room2">Habitacion Doble</option>
+              <option value="room3">Habitacion Familiar</option>
+              <option value="room4">Habitacion Gold</option>
+              <option value="room5">Habitacion VIP</option>
+            </select>
           </div>
+<<<<<<< HEAD
           <div class="container-reservacion-form" id="reservacion-container">
             <div class="tittle">
               <h2 class="titulo-modal">Detalles Habitacion</h2>
@@ -192,14 +197,201 @@
             </div>
             <div class="container-success-reservacion">
               <img class="success-img" src="./sources/success.svg" />
+=======
+        </section>
+
+        <section
+          id="modalReserved"
+          class="modal-scafold flex-row flex-center hidden"
+        >
+          <div class="modal flex-row flex-center">
+            <div class="exit-modal" id="exitbtn">
+              <i class="far fa-times"></i>
+            </div>
+            <div class="flex-column flex-center">
+              <div class="flex-column flex-center" id="reserves-data">
+                <h2 class="title-modal">Detalles Habitacion</h2>
+                <div class="content-modal flex-row" id="content-modal-id"></div>
+
+                <div class="form-modal flex-column flex-center" id="form-div">
+                  <h2 class="title-modal">Formulario Reserva</h2>
+                  <form class="form-reserve flex-row flex-center">
+                    <div class="form">
+                      <input
+                        type="text"
+                        name="name"
+                        autocomplete="off"
+                        required
+                        id="form-name"
+                      />
+                      <label for="name" class="label-name">
+                        <span class="content-name">Nombre</span>
+                      </label>
+                    </div>
+                    <div class="form">
+                      <input
+                        type="text"
+                        name="apellido"
+                        autocomplete="off"
+                        required
+                        id="form-lastname"
+                      />
+                      <label for="apellido" class="label-name">
+                        <span class="content-name">Apellido</span>
+                      </label>
+                    </div>
+                    <div class="form">
+                      <input
+                        type="email"
+                        name="mail"
+                        autocomplete="off"
+                        required
+                        id="form-email"
+                      />
+                      <label for="mail" class="label-name">
+                        <span class="content-name">Email</span>
+                      </label>
+                    </div>
+                    <div class="form">
+                      <input
+                        type="text"
+                        name="address"
+                        autocomplete="off"
+                        required
+                        id="form-address"
+                      />
+                      <label for="address" class="label-name">
+                        <span class="content-name">Direccion</span>
+                      </label>
+                    </div>
+                    <div class="form">
+                      <input
+                        type="number"
+                        name="phone"
+                        maxlength="12"
+                        autocomplete="off"
+                        required
+                        id="form-numphone"
+                      />
+                      <label for="phone" class="label-name">
+                        <span class="content-name">Telefono</span>
+                      </label>
+                    </div>
+                    <div class="form-dates-box flex-row" id="dates-form">
+                      <div class="form-date">
+                        <input
+                          type="date"
+                          name="date"
+                          id="form-datestart"
+                          value=""
+                          min=""
+                        />
+                        <label for="date" class="label-name">
+                          <span class="content-name">Fecha Inicio</span>
+                        </label>
+                      </div>
+                      <div class="form-date">
+                        <input
+                          type="date"
+                          name="date-end"
+                          autocomplete="off"
+                          required
+                          id="form-dateend"
+                          value=""
+                          disabled
+                        />
+
+                        <label for="date-end" class="label-name">
+                          <span class="content-name">Fecha Final</span>
+                        </label>
+                      </div>
+                    </div>
+                  </form>
+
+                  <div class="box-btn">
+                    <button type="submit" id="reserve" class="btn-reserve">
+                      Aceptar
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex-column flex-center hidden" id="reserve-sucess">
+                <div class="tittle">
+                  <h2 class="title-modal">
+                    Tu reserva fue finalizada con exito
+                  </h2>
+                </div>
+                <div class="container-success-reserve">
+                  <img class="success-img" src="./sources/success.svg" />
+                </div>
+              </div>
+>>>>>>> houdini's-lab
             </div>
           </div>
-        </article>
+        </section>
+
+        <div
+          id="roomsSection"
+          class="section-rooms-card flex-column flex-center"
+        ></div>
       </section>
 
-      <section id="habitaciones"></section>
+      <section id="reserve-div" class="div hidden">
+        <div class="flex-column flex-center">
+          <table id="reserves-table">
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Fecha Inicio Reserva</th>
+                <th>Fecha Fin Reserva</th>
+                <th>Nombre Huesped</th>
+                <th>Habitacion</th>
+                <th>Telefono</th>
+                <th>Email</th>
+              </tr>
+            </thead>
+            <tbody id="body-table"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="about-div" class="div hidden">
+        <div class="flex-column flex-center">
+          <h2 class="title-modal">About Us</h2>
+          <div class="aboutDescription">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel
+              dui leo. Praesent maximus, lacus eleifend vehicula lacinia, risus
+              risus interdum tellus, eu ultrices lorem velit in massa. Nulla
+              convallis auctor risus, eget commodo risus dapibus nec. Aenean
+              molestie quam libero, a eleifend risus consequat in. Fusce
+              convallis aliquam tortor et lobortis. Pellentesque id vehicula
+              ligula. Aenean pellentesque urna eu lorem finibus molestie.
+            </p>
+            <p>
+              Integer in dolor orci. Mauris luctus venenatis sodales. Proin
+              feugiat tellus velit, eu imperdiet elit eleifend tincidunt.
+              Phasellus sodales diam urna, eget lacinia justo varius in. Morbi
+              venenatis felis felis, ut maximus tortor semper non. Duis
+              sollicitudin varius ligula, vitae eleifend dui ultrices nec. Nulla
+              ultrices posuere pellentesque. Maecenas laoreet dolor metus, nec
+              aliquam diam vestibulum sit amet. Interdum et malesuada fames ac
+              ante ipsum primis in faucibus. Quisque sollicitudin nisl ligula,
+              id viverra mauris scelerisque vestibulum. Aliquam lobortis augue
+              in urna commodo varius. Praesent non orci nisl. Mauris aliquam
+              orci quis quam vestibulum lacinia. Integer sit amet convallis
+              augue, in sagittis magna. Nunc auctor imperdiet nunc ac tincidunt.
+            </p>
+          </div>
+        </div>
+      </section>
     </main>
+<<<<<<< HEAD
     <script src="./sources/template.js"></script>
     <script src="./sources/scripts.js"></script>
+=======
+    <script type="module" src="./sources/App.js"></script>
+>>>>>>> houdini's-lab
   </body>
 </html>
