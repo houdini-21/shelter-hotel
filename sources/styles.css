@@ -279,27 +279,9 @@ input.nigths-input {
   backdrop-filter: blur(5px);
 }
 
-<<<<<<< HEAD
-.exit-btn {
-  display: flex;
-  justify-content: flex-end;
-  margin-right: 20px;
-  margin-top: 15px;
-}
-
-.exit-btn i {
-  font-size: 30px;
-  color: #ff5a5f;
-}
-
-.modal-container {
-  width: 1000px;
-  height: 565px;
-=======
 .modal {
   width: 1020px;
   height: 595px;
->>>>>>> houdini's-lab
   background-color: #ffffff;
   border-radius: 20px;
 }
@@ -542,9 +524,6 @@ input.nigths-input {
   100% {
     opacity: 1;
   }
-<<<<<<< HEAD
-}
-=======
 }
 
 #reserves-table {
@@ -614,4 +593,3 @@ tr {
   color: #404040;
   font-weight: 100;
 }
->>>>>>> houdini's-lab
