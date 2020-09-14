@@ -143,10 +143,10 @@ ${iconsRoom}
   </div>
 </div>`;
   let modalid = document.getElementById("content-modal-id");
-  document.getElementById("modalReserved").classList.replace("hidden", "fadeIn");
+  document
+    .getElementById("modalReserved")
+    .classList.replace("hidden", "fadeIn");
   modalid.innerHTML = modalTemplate;
 };
 
-
-
-export { genCards, showModal, modalData};
+export { genCards, showModal, modalData };
