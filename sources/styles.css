@@ -582,3 +582,20 @@ tr {
   color: #404040;
   font-weight: 100;
 }
+
+.alert {
+  background-color: #ff5a5f;
+  width: 200px;
+  height: 90px;
+  border-radius: 10px;
+  top: 15%;
+  right: 2%;
+  position: absolute;
+}
+
+.message {
+    text-align: center;
+    font-size: 15px;
+    font-weight: 500;
+    color: #fff;
+}

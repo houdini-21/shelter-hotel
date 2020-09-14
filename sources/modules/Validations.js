@@ -1,8 +1,7 @@
 import Guest from "./Guest.js";
-import { getdate } from "./Dates.js";
-import { NewReserve } from "./Reserves.js";
+import { NewReserve } from "./ReservesTable.js";
 
-const resetField = (
+const cleanFields = (
   name,
   lastname,
   email,
@@ -100,4 +99,4 @@ const generateId = (name, lastname, phone, rooms) => {
   return idname + idlastname + idphone + "-" + idroom;
 };
 
-export { resetField, verifiedField };
+export { cleanFields, verifiedField };

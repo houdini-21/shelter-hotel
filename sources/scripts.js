@@ -1,15 +1,15 @@
 import template from "./modules/Template.js";
 import { genCards, showModal, modalData } from "./modules/RenderTemplate.js";
 import {
-  hiddenshowCards,
-  minInput,
-  plusInput,
+  hiddenandshowCards,
+  minusBtn,
+  plusBtn,
   numNigths,
   Total,
   hiddendiv,
 } from "./modules/BtnsFuntional.js";
 import { getdate, updateDateEnd, addEndReserve } from "./modules/Dates.js";
-import { resetField, verifiedField } from "./modules/Validations.js";
+import { cleanFields, verifiedField } from "./modules/Validations.js";
 
 
 template.forEach((data) => {
@@ -18,7 +18,7 @@ template.forEach((data) => {
 
 const selector = document.getElementById("selector");
 selector.addEventListener("change", () => {
-  hiddenshowCards(selector.value);
+  hiddenandshowCards(selector.value);
 });
 
 const btnAddDays = document.querySelectorAll("#plus");
@@ -27,13 +27,13 @@ const btnAgreeRoom = document.querySelectorAll(".btn-agree");
 
 btnAddDays.forEach((btn, nArray) => {
   btn.addEventListener("click", () => {
-    plusInput(nArray);
+    plusBtn(nArray);
   });
 });
 
 btnMinDays.forEach((btn, nArray) => {
   btn.addEventListener("click", () => {
-    minInput(nArray);
+    minusBtn(nArray);
   });
 });
 
@@ -86,6 +86,6 @@ reservebtn.addEventListener("click", () => {
 });
 
 exitbtn.addEventListener("click", () => {
-  resetField(name, lastname, email, phone, datestart, dateend, address);
+  cleanFields(name, lastname, email, phone, datestart, dateend, address);
   document.getElementById("modalReserved").classList.add("hidden");
 });
