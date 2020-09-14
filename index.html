@@ -8,11 +8,6 @@
     <link rel="stylesheet" href="./sources/icons/css/fontawesome.css" />
     <link rel="stylesheet" href="./sources/icons/css/regular.css" />
     <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="./sources/favicon/apple-touch-icon.png"
-    />
-    <link
       rel="icon"
       type="image/png"
       sizes="32x32"
@@ -24,7 +19,6 @@
       sizes="16x16"
       href="./sources/favicon/favicon-16x16.png"
     />
-    <link rel="manifest" href="./sources/favicon/site.webmanifest" />
     <title>Shelter</title>
   </head>
   <body>
@@ -58,6 +52,11 @@
           id="modalReserved"
           class="modal-scafold flex-row flex-center hidden"
         >
+          <div class="alert flex-column flex-center">
+            <div class="content-alert">
+              <p class="message">Los campos no pueden quedar vacios</p>
+            </div>
+          </div>
           <div class="modal flex-row flex-center">
             <div class="exit-modal" id="exitbtn">
               <i class="far fa-times"></i>
@@ -240,6 +239,6 @@
         </div>
       </section>
     </main>
-    <script type="module" src="./sources/App.js"></script>
+    <script type="module" src="./sources/scripts.js"></script>
   </body>
 </html>

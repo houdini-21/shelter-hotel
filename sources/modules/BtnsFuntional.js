@@ -11,7 +11,7 @@ const hiddendiv = (div) => {
   }
 };
 
-const hiddenshowCards = (optionselect) => {
+const hiddenandshowCards = (optionselect) => {
   let cardRooms = document.querySelectorAll(".card-room");
   let btnPlusMinus = document.querySelectorAll("#nigths-btn");
   for (let i = 0; i < cardRooms.length; i++) {
@@ -46,32 +46,32 @@ const reset = (nArray) => {
   roomsPrice[nArray].innerText = `$${priceReseted}`;
 };
 
-const CalcPrice = (nigths, nArray) => {
+const CalculePrice = (nigths, nArray) => {
   const priceRoom = document.querySelectorAll(".price-night");
   let price = priceRoom[nArray].id;
   Total = nigths * price;
   priceRoom[nArray].innerText = `$${Total}`;
 };
 
-const minInput = (nArray) => {
+const minusBtn = (nArray) => {
   const inputValue = document.querySelectorAll(".nigths-input");
   const subCantNights = document.querySelectorAll(".subtitle-night");
   numNigths--;
   if (numNigths < 1) {
     numNigths = 1;
   }
-  CalcPrice(numNigths, nArray);
+  CalculePrice(numNigths, nArray);
   inputValue[nArray].value = numNigths;
   subCantNights[nArray].innerText = `Por ${numNigths} Noche(s)`;
 };
 
-const plusInput = (nArray) => {
+const plusBtn = (nArray) => {
   const inputValue = document.querySelectorAll(".nigths-input");
   const subCantNights = document.querySelectorAll(".subtitle-night");
   numNigths++;
-  CalcPrice(numNigths, nArray);
+  CalculePrice(numNigths, nArray);
   inputValue[nArray].value = numNigths;
   subCantNights[nArray].innerText = `Por ${numNigths} Noche(s)`;
 };
 
-export { hiddenshowCards, minInput, plusInput, numNigths, Total, hiddendiv };
+export { hiddenandshowCards, minusBtn, plusBtn, numNigths, Total, hiddendiv };
