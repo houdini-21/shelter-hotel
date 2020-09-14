@@ -5,7 +5,6 @@ body {
 * {
   font-family: "Cereal";
 }
-
 #rooms-div.div,
 #reserve-div.div {
   margin-top: 20px;
@@ -583,19 +582,26 @@ tr {
   font-weight: 100;
 }
 
+
+
 .alert {
-  background-color: #ff5a5f;
+  background-color: #f24c3d;
   width: 200px;
   height: 90px;
   border-radius: 10px;
   top: 15%;
-  right: 2%;
+  right: -15%;
   position: absolute;
+  transition: right 0.4s ease;
+}
+
+.alert.showtoast {
+  right: 2%;
 }
 
 .message {
-    text-align: center;
-    font-size: 15px;
-    font-weight: 500;
-    color: #fff;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 500;
+  color: #fff;
 }

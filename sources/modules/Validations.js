@@ -63,12 +63,7 @@ const verifiedField = (
       roomGuest
     );
 
-    let id = generateId(
-      user.name,
-      user.lastname,
-      user.phone,
-      dataRoom.name
-    );
+    let id = generateId(user.name, user.lastname, user.phone, dataRoom.name);
 
     new NewReserve(
       id,
@@ -86,7 +81,11 @@ const verifiedField = (
     sucessdiv.classList.replace("hidden", "fadeIn");
     reservesdiv.classList.add("hidden");
   } else {
-    alert("No puedes dejar campos vacios");
+    const toast = document.getElementById("toast");
+    toast.classList.add("showtoast");
+    setTimeout(() => {
+      toast.classList.remove("showtoast");
+    },2000);
   }
 };
 
