@@ -24,18 +24,13 @@ class Reserves {
     this._reserves.push(reservedata);
     tableBody(reservedata);
   }
+  showReserves() {
+    return this._reserves;
+  }
 }
 
 class NewReserve {
-  constructor(
-    id,
-    datestart,
-    dateend,
-    nameGuest,
-    roomdata,
-    phone,
-    email
-  ) {
+  constructor(id, datestart, dateend, nameGuest, roomdata, phone, email) {
     (this._id = id),
       (this._datestart = datestart),
       (this._dateend = dateend),

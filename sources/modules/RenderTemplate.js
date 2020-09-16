@@ -100,7 +100,7 @@ const showModal = (nArray, nigths, total) => {
   const modalTemplate = `
   <div class="img-modal">
   <div class="box-img">
-    <img class="img-modal" src="${modalData.img}" />
+    <img class="container-img-modal" src="${modalData.img}" />
   </div>
 </div>
 <div class="description-modal flex-column">

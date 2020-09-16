@@ -17,7 +17,7 @@ const hiddenandshowCards = (optionselect) => {
   for (let i = 0; i < cardRooms.length; i++) {
     const divRoom = cardRooms[i];
     const btnNigths = btnPlusMinus[i];
-    reset(i);
+    resetInputNights(i);
     optionselect === "0"
       ? (showElement(divRoom), hiddeElement(btnNigths))
       : optionselect === divRoom.id
@@ -34,7 +34,7 @@ const showElement = (div) => {
   div.classList.replace("hidden", "fadeIn");
 };
 
-const reset = (nArray) => {
+const resetInputNights = (nArray) => {
   const inputValue = document.querySelectorAll(".nigths-input");
   const subCantNights = document.querySelectorAll(".subtitle-night");
   const roomsPrice = document.querySelectorAll(".price-night");
