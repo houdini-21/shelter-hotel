@@ -1,5 +1,23 @@
 import Guest from "./Guest.js";
 import { NewReserve } from "./ReservesTable.js";
+import { cleardiv, renderCards } from "./RenderTemplate.js";
+import {
+  saveDataLocalStorage,
+  readDataLocalStorage,
+} from "./readSaveLocalstorage.js";
+
+function updateAvaiableRooms(numArray, avaiable) {
+  let dataLocalstorage = readDataLocalStorage();
+  let avaiableRoomsUpdated = avaiable;
+  avaiableRoomsUpdated--;
+  dataLocalstorage[numArray].avaiable = avaiableRoomsUpdated;
+  saveDataLocalStorage(dataLocalstorage);
+  cleardiv();
+  renderCards();
+  //  setTimeout(()=>{
+  //  renderCards()
+  // }, 600)
+}
 
 const cleanFields = (
   name,
@@ -27,7 +45,8 @@ const verifiedField = (
   datestart,
   dateend,
   address,
-  dataRoom
+  dataRoom,
+  numArray
 ) => {
   if (
     !(
@@ -64,7 +83,6 @@ const verifiedField = (
     );
 
     let id = generateId(user.name, user.lastname, user.phone, dataRoom.name);
-
     new NewReserve(
       id,
       user.datestart,
@@ -74,7 +92,7 @@ const verifiedField = (
       user.phone,
       user.email
     );
-
+    updateAvaiableRooms(numArray, dataRoom.avaiable);
     let sucessdiv = document.getElementById("reserve-sucess");
     let reservesdiv = document.getElementById("reserves-data");
 
@@ -85,7 +103,7 @@ const verifiedField = (
     toast.classList.add("showtoast");
     setTimeout(() => {
       toast.classList.remove("showtoast");
-    },2000);
+    }, 2000);
   }
 };
 

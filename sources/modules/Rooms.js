@@ -1,18 +1,22 @@
+import { saveDataLocalStorage } from "./readSaveLocalstorage.js";
+
+let empty = false;
+
 class Bedrooms {
   constructor() {
-    this._bedrooms = [];
+    this._bedrooms = JSON.parse(localStorage.getItem("rooms-data")) || [];
   }
 
   addRooms(room) {
+    if (this._bedrooms.length === 0) {
+      empty = true;
+    }
     this._bedrooms.push(room);
-  }
-
-  bedroomsdata() {
-    return this._bedrooms;
+    if (empty) {
+      saveDataLocalStorage(this._bedrooms);
+    }
   }
 }
-
-let bedroomdata = new Bedrooms();
 
 class Room {
   constructor(
@@ -37,7 +41,6 @@ class Room {
     this._icons = icons;
     this._include = include;
     this._avaiable = avaiable;
-    bedroomdata.addRooms(this.dataRoom);
   }
 
   get id() {
@@ -129,4 +132,4 @@ class Room {
   }
 }
 
-export { Room, bedroomdata };
+export { Room, Bedrooms };

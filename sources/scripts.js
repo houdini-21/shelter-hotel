@@ -1,5 +1,4 @@
-import template from "./modules/Template.js";
-import { genCards, showModal, modalData } from "./modules/RenderTemplate.js";
+import { showModal, modalData, renderCards } from "./modules/RenderTemplate.js";
 import {
   hiddenandshowCards,
   minusBtn,
@@ -11,10 +10,7 @@ import {
 import { getdate, updateDateEnd, addEndReserve } from "./modules/Dates.js";
 import { cleanFields, verifiedField } from "./modules/Validations.js";
 
-
-template.forEach((data) => {
-  genCards(data);
-});
+renderCards();
 
 const selector = document.getElementById("selector");
 selector.addEventListener("change", () => {
@@ -44,9 +40,10 @@ const phone = document.getElementById("form-numphone");
 const datestart = document.getElementById("form-datestart");
 const dateend = document.getElementById("form-dateend");
 const address = document.getElementById("form-address");
-const reservebtn = document.getElementById("reserve");
+const reservebtn = document.querySelector(".btn-reserve");
 const exitbtn = document.getElementById("exitbtn");
 const itemsnavbar = document.querySelectorAll(".nav-item");
+let numberArray = 0
 
 itemsnavbar.forEach((btn) => {
   btn.addEventListener("click", () => {
@@ -58,12 +55,13 @@ datestart.min = getdate();
 
 btnAgreeRoom.forEach((btn, nArray) => {
   btn.addEventListener("click", () => {
+    numberArray = nArray
     let sucessdiv = document.getElementById("reserve-sucess");
     let reservesdiv = document.getElementById("reserves-data");
 
     sucessdiv.classList.add("hidden");
     reservesdiv.classList.remove("hidden");
-    showModal(nArray, numNigths, Total);
+    showModal(numberArray, numNigths, Total);
   });
 });
 
@@ -81,7 +79,8 @@ reservebtn.addEventListener("click", () => {
     datestart.value,
     dateend.value,
     address.value,
-    modalData
+    modalData,
+    numberArray
   );
 });
 
