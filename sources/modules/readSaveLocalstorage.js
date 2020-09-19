@@ -1,9 +1,9 @@
-const saveDataLocalStorage = (data) => {
-  localStorage.setItem("rooms-data", JSON.stringify(data));
+const saveDataLocalStorage = (itemlocalstorage,data) => {
+  localStorage.setItem(itemlocalstorage, JSON.stringify(data));
 };
 
-const readDataLocalStorage = () => {
-  let dataStorage = JSON.parse(localStorage.getItem("rooms-data"));
+const readDataLocalStorage = (itemlocalstorage) => {
+  let dataStorage = JSON.parse(localStorage.getItem(itemlocalstorage));
   return (dataStorage);
 };
 

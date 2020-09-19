@@ -13,7 +13,7 @@ class Bedrooms {
     }
     this._bedrooms.push(room);
     if (empty) {
-      saveDataLocalStorage(this._bedrooms);
+      saveDataLocalStorage("rooms-data",this._bedrooms);
     }
   }
 }

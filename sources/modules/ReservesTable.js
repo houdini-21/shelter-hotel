@@ -1,3 +1,7 @@
+import {
+  saveDataLocalStorage,
+  readDataLocalStorage,
+} from "./readSaveLocalstorage.js";
 let templateTable = "";
 
 const tableBody = (data) => {
@@ -15,15 +19,28 @@ const tableBody = (data) => {
   document.getElementById("body-table").innerHTML = templateTable;
 };
 
+const rendertable = () => {
+  let datatable = readDataLocalStorage("reserves");
+  if (datatable) {
+    datatable.forEach((data) => {
+      tableBody(data);
+    });
+  }
+};
+
+rendertable();
+
 class Reserves {
   constructor() {
-    this._reserves = [];
+    this._reserves = JSON.parse(localStorage.getItem("reserves")) || [];
   }
 
   addReserve(reservedata) {
     this._reserves.push(reservedata);
+    saveDataLocalStorage("reserves", this._reserves);
     tableBody(reservedata);
   }
+
   showReserves() {
     return this._reserves;
   }

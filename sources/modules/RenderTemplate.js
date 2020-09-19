@@ -26,7 +26,7 @@ const room2 = new Room(
   2,
   ["wifi", "air-conditioner", "shower", "tv"],
   ["Wifi", "Aire acondicionado", "Ducha agua helada/caliente", "Televisor"],
-  90
+  5
 );
 const room3 = new Room(
   "room3",
@@ -92,7 +92,7 @@ new Bedrooms().addRooms(room5.dataRoom);
 let modalData = "";
 
 const renderCards = () => {
-  let cardsData = readDataLocalStorage();
+  let cardsData = readDataLocalStorage("rooms-data");
   cardsData.forEach((rooms) => {
     genCards(rooms);
   });
@@ -198,7 +198,7 @@ const genCards = (data) => {
 };
 
 const showModal = (nArray, nigths, total) => {
-  let template = readDataLocalStorage();
+  let template = readDataLocalStorage("rooms-data");
   modalData = template[nArray];
   let iconsRoom = genIcons(modalData.icons, "icons-label", modalData.include);
   const modalTemplate = `
