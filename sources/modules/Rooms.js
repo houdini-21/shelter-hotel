@@ -6,14 +6,13 @@ class Bedrooms {
   constructor() {
     this._bedrooms = JSON.parse(localStorage.getItem("rooms-data")) || [];
   }
-
   addRooms(room) {
     if (this._bedrooms.length === 0) {
       empty = true;
     }
     this._bedrooms.push(room);
     if (empty) {
-      saveDataLocalStorage("rooms-data",this._bedrooms);
+      saveDataLocalStorage("rooms-data", this._bedrooms);
     }
   }
 }

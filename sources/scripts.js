@@ -1,20 +1,36 @@
-import { showModal, modalData, renderCards } from "./modules/RenderTemplate.js";
+import { modalData, renderCards, showModal } from "./modules/RenderTemplate.js";
 import {
   hiddenandshowCards,
-  minusBtn,
-  plusBtn,
   numNigths,
-  Total,
   hiddendiv,
 } from "./modules/BtnsFuntional.js";
 import { getdate, updateDateEnd, addEndReserve } from "./modules/Dates.js";
 import { cleanFields, verifiedField } from "./modules/Validations.js";
+import { minusBtn, plusBtn, Total } from "./modules/BtnsFuntional.js";
 
 renderCards();
 
 const selector = document.getElementById("selector");
 selector.addEventListener("change", () => {
   hiddenandshowCards(selector.value);
+});
+
+const name = document.getElementById("form-name");
+const lastname = document.getElementById("form-lastname");
+const email = document.getElementById("form-email");
+const phone = document.getElementById("form-numphone");
+const datestart = document.getElementById("form-datestart");
+const dateend = document.getElementById("form-dateend");
+const address = document.getElementById("form-address");
+const reservebtn = document.querySelector(".btn-reserve");
+const creditcard = document.getElementById("form-creditcard");
+const exitbtn = document.getElementById("exitbtn");
+const itemsnavbar = document.querySelectorAll(".nav-item");
+
+itemsnavbar.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    hiddendiv(btn.id);
+  });
 });
 
 const btnAddDays = document.querySelectorAll("#plus");
@@ -33,29 +49,10 @@ btnMinDays.forEach((btn, nArray) => {
   });
 });
 
-const name = document.getElementById("form-name");
-const lastname = document.getElementById("form-lastname");
-const email = document.getElementById("form-email");
-const phone = document.getElementById("form-numphone");
-const datestart = document.getElementById("form-datestart");
-const dateend = document.getElementById("form-dateend");
-const address = document.getElementById("form-address");
-const reservebtn = document.querySelector(".btn-reserve");
-const exitbtn = document.getElementById("exitbtn");
-const itemsnavbar = document.querySelectorAll(".nav-item");
-let numberArray = 0
-
-itemsnavbar.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    hiddendiv(btn.id);
-  });
-});
-
-datestart.min = getdate();
-
+let numberArray = 0;
 btnAgreeRoom.forEach((btn, nArray) => {
   btn.addEventListener("click", () => {
-    numberArray = nArray
+    numberArray = nArray;
     let sucessdiv = document.getElementById("reserve-sucess");
     let reservesdiv = document.getElementById("reserves-data");
 
@@ -64,6 +61,8 @@ btnAgreeRoom.forEach((btn, nArray) => {
     showModal(numberArray, numNigths, Total);
   });
 });
+
+datestart.min = getdate();
 
 datestart.addEventListener("change", () => {
   let endReserve = addEndReserve(datestart.value, numNigths);
@@ -79,12 +78,22 @@ reservebtn.addEventListener("click", () => {
     datestart.value,
     dateend.value,
     address.value,
+    creditcard.value,
     modalData,
     numberArray
   );
 });
 
 exitbtn.addEventListener("click", () => {
-  cleanFields(name, lastname, email, phone, datestart, dateend, address);
+  cleanFields(
+    name,
+    lastname,
+    email,
+    phone,
+    datestart,
+    dateend,
+    address,
+    creditcard
+  );
   document.getElementById("modalReserved").classList.add("hidden");
 });

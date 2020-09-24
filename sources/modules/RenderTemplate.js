@@ -80,7 +80,7 @@ const room5 = new Room(
     "Televisor",
     "Jacuzzi",
   ],
-  10
+  1
 );
 
 new Bedrooms().addRooms(room1.dataRoom);
@@ -96,6 +96,7 @@ const renderCards = () => {
   cardsData.forEach((rooms) => {
     genCards(rooms);
   });
+
 };
 
 const cleardiv = () => {

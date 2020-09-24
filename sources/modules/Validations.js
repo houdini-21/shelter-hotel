@@ -6,7 +6,8 @@ import {
   readDataLocalStorage,
 } from "./readSaveLocalstorage.js";
 
-const updateAvaiableRooms = (numArray, avaiable) => {
+// numero de tarjeta para testing 5344176632440170
+const checkAvaiableRooms = (numArray, avaiable) => {
   let dataLocalstorage = readDataLocalStorage("rooms-data");
   let avaiableRoomsUpdated = avaiable;
   if (avaiableRoomsUpdated <= 0) {
@@ -31,6 +32,19 @@ const callToast = (messages) => {
   }, 2000);
 };
 
+const checkCreditcard = (num) => {
+  let array = num.toString().split("");
+  array.reverse();
+  array.map((x) => parseInt(x));
+  let lastnumber = array.splice(0, 1)[0];
+  let plusnumber = array.reduce(
+    (acc, val, i) => (i % 2 !== 0 ? acc + val : acc + ((val * 2) % 9) || 9),
+    0
+  );
+  plusnumber += lastnumber;
+  return plusnumber % 10 === 0;
+};
+
 const cleanFields = (
   name,
   lastname,
@@ -38,7 +52,8 @@ const cleanFields = (
   phone,
   datestart,
   dateend,
-  address
+  address,
+  creditcard
 ) => {
   (name.value = ""),
     (lastname.value = ""),
@@ -46,17 +61,16 @@ const cleanFields = (
     (phone.value = ""),
     (datestart.value = ""),
     (dateend.value = ""),
-    (address.value = "");
+    (address.value = ""),
+    (creditcard.value = "");
 };
 
 const validationEmail = (email) => {
-  console.log(email);
   let emailRegex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
   let emailtested = emailRegex.test(email);
   return emailtested;
 };
 
-console.log(validationEmail("marub@ls.com"));
 const validationFields = (
   name,
   lastname,
@@ -64,21 +78,26 @@ const validationFields = (
   phone,
   datestart,
   dateend,
-  address
+  address,
+  creditcard
 ) => {
   if (
-    (name === "",
-    lastname === "",
-    email === "",
-    phone === "",
-    datestart === "",
-    dateend === "",
-    address === "")
+    name === "" ||
+    lastname === "" ||
+    email === "" ||
+    phone === "" ||
+    datestart === "" ||
+    dateend === "" ||
+    address === "" ||
+    creditcard === ""
   ) {
     callToast("Ningun campo puede quedar vacio");
     return false;
   } else if (!validationEmail(email)) {
     callToast("Email invalido");
+    return false;
+  } else if (!checkCreditcard(creditcard)) {
+    callToast("Numero de tarjeta Invalido");
     return false;
   } else {
     return true;
@@ -138,13 +157,23 @@ const verifiedField = (
   datestart,
   dateend,
   address,
+  creditcard,
   dataRoom,
   numArray
 ) => {
   if (
-    validationFields(name, lastname, email, phone, datestart, dateend, address)
+    validationFields(
+      name,
+      lastname,
+      email,
+      phone,
+      datestart,
+      dateend,
+      address,
+      creditcard
+    )
   ) {
-    if (updateAvaiableRooms(numArray, dataRoom.avaiable)) {
+    if (checkAvaiableRooms(numArray, dataRoom.avaiable)) {
       let sucessdiv = document.getElementById("reserve-sucess");
       let reservesdiv = document.getElementById("reserves-data");
       createUserReserve(
