@@ -1,5 +1,7 @@
 import { readDataLocalStorage } from "./readSaveLocalstorage.js";
 import { Room, Bedrooms } from "./Rooms.js";
+import { minusBtn, plusBtn, Total } from "./BtnsFuntional.js";
+import { numNigths } from "./BtnsFuntional.js";
 
 const room1 = new Room(
   "room1",
@@ -96,7 +98,6 @@ const renderCards = () => {
   cardsData.forEach((rooms) => {
     genCards(rooms);
   });
-
 };
 
 const cleardiv = () => {
@@ -196,6 +197,35 @@ const genCards = (data) => {
   document
     .getElementById("roomsSection")
     .insertAdjacentHTML("beforeend", templateCardRoom);
+
+  const btnAddDays = document.querySelectorAll("#plus");
+  const btnMinDays = document.querySelectorAll("#minus");
+  const btnAgreeRoom = document.querySelectorAll(".btn-agree");
+
+  btnAddDays.forEach((btn, nArray) => {
+    btn.addEventListener("click", () => {
+      plusBtn(nArray);
+    });
+  });
+
+  btnMinDays.forEach((btn, nArray) => {
+    btn.addEventListener("click", () => {
+      minusBtn(nArray);
+    });
+  });
+
+  btnAgreeRoom.forEach((btn, nArray) => {
+    btn.addEventListener("click", () => {
+      let sucessdiv = document.getElementById("reserve-sucess");
+      let reservesdiv = document.getElementById("reserves-data");
+
+      let reservebtn = document.querySelector(".btn-reserve");
+      reservebtn.id = nArray;
+      sucessdiv.classList.add("hidden");
+      reservesdiv.classList.remove("hidden");
+      showModal(numNigths, Total);
+    });
+  });
 };
 
 const showModal = (nArray, nigths, total) => {

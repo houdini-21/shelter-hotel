@@ -158,8 +158,7 @@ const verifiedField = (
   dateend,
   address,
   creditcard,
-  dataRoom,
-  numArray
+  dataRoom
 ) => {
   if (
     validationFields(
@@ -173,6 +172,7 @@ const verifiedField = (
       creditcard
     )
   ) {
+    let numArray = document.querySelector(".btn-reserve").id;
     if (checkAvaiableRooms(numArray, dataRoom.avaiable)) {
       let sucessdiv = document.getElementById("reserve-sucess");
       let reservesdiv = document.getElementById("reserves-data");
