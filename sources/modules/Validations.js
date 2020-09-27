@@ -5,31 +5,18 @@ import {
   saveDataLocalStorage,
   readDataLocalStorage,
 } from "./readSaveLocalstorage.js";
+import { callToast } from "./Toast.js";
 
 // numero de tarjeta para testing 5344176632440170
-const checkAvaiableRooms = (numArray, avaiable) => {
+const updateAvaiableRooms = (numArray, avaiable) => {
   let dataLocalstorage = readDataLocalStorage("rooms-data");
   let avaiableRoomsUpdated = avaiable;
-  if (avaiableRoomsUpdated <= 0) {
-    return false;
-  } else {
-    avaiableRoomsUpdated--;
-    dataLocalstorage[numArray].avaiable = avaiableRoomsUpdated;
-    saveDataLocalStorage("rooms-data", dataLocalstorage);
-    cleardiv();
-    renderCards();
-    return true;
-  }
-};
-
-const callToast = (messages) => {
-  const toast = document.getElementById("toast");
-  const messageid = document.getElementById("message");
-  messageid.innerText = messages;
-  toast.classList.add("showtoast");
-  setTimeout(() => {
-    toast.classList.remove("showtoast");
-  }, 2000);
+  avaiableRoomsUpdated--;
+  dataLocalstorage[numArray].avaiable = avaiableRoomsUpdated;
+  saveDataLocalStorage("rooms-data", dataLocalstorage);
+  cleardiv();
+  renderCards();
+  return true;
 };
 
 const checkCreditcard = (num) => {
@@ -173,24 +160,21 @@ const verifiedField = (
     )
   ) {
     let numArray = document.querySelector(".btn-reserve").id;
-    if (checkAvaiableRooms(numArray, dataRoom.avaiable)) {
-      let sucessdiv = document.getElementById("reserve-sucess");
-      let reservesdiv = document.getElementById("reserves-data");
-      createUserReserve(
-        dataRoom,
-        name,
-        lastname,
-        email,
-        phone,
-        datestart,
-        dateend,
-        address
-      );
-      sucessdiv.classList.replace("hidden", "fadeIn");
-      reservesdiv.classList.add("hidden");
-    } else {
-      alert("no hay habitaciones");
-    }
+    updateAvaiableRooms(numArray, dataRoom.avaiable);
+    let sucessdiv = document.getElementById("reserve-sucess");
+    let reservesdiv = document.getElementById("reserves-data");
+    createUserReserve(
+      dataRoom,
+      name,
+      lastname,
+      email,
+      phone,
+      datestart,
+      dateend,
+      address
+    );
+    sucessdiv.classList.replace("hidden", "fadeIn");
+    reservesdiv.classList.add("hidden");
   }
 };
 

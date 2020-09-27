@@ -1,7 +1,11 @@
-import { readDataLocalStorage } from "./readSaveLocalstorage.js";
+import {
+  readDataLocalStorage,
+  saveDataLocalStorage,
+} from "./readSaveLocalstorage.js";
 import { Room, Bedrooms } from "./Rooms.js";
 import { minusBtn, plusBtn, Total } from "./BtnsFuntional.js";
 import { numNigths } from "./BtnsFuntional.js";
+import { callToast } from "./Toast.js";
 
 const room1 = new Room(
   "room1",
@@ -223,14 +227,32 @@ const genCards = (data) => {
       reservebtn.id = nArray;
       sucessdiv.classList.add("hidden");
       reservesdiv.classList.remove("hidden");
-      showModal(numNigths, Total);
+      showModal(nArray, numNigths, Total);
     });
   });
 };
+const disabledContent = (id) => {
+  document.getElementById(id).disabled = true;
+};
 
-const showModal = (nArray, nigths, total) => {
+const enableContent = (id) => {
+  document.getElementById(id).disabled = false;
+};
+
+const showModal = (narray, nigths, total) => {
   let template = readDataLocalStorage("rooms-data");
-  modalData = template[nArray];
+  modalData = template[narray];
+
+  if (modalData.avaiable === 0) {
+    callToast("no hay habitaciones disponibles");
+    let input = document.querySelectorAll("form input");
+    let btnReseve = document.querySelectorAll(".btn-reserve");
+    disabledContent(btnReseve[0].id);
+    input.forEach((fields) => {
+      disabledContent(fields.id);
+    });
+  }
+
   let iconsRoom = genIcons(modalData.icons, "icons-label", modalData.include);
   const modalTemplate = `
   <div class="img-modal">

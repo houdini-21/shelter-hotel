@@ -269,7 +269,7 @@ input.nigths-input {
 
 .modal {
   width: 1020px;
-  height: 595px;
+  height: 620px;
   background-color: #ffffff;
   border-radius: 20px;
 }
@@ -290,7 +290,7 @@ input.nigths-input {
 .exit-modal {
   position: absolute;
   margin-left: 970px;
-  margin-bottom: 525px;
+  margin-bottom: 575px;
 }
 
 .detalles-habitacion-modal {
