@@ -5,7 +5,7 @@ const callToast = (messages) => {
   toast.classList.add("showtoast");
   setTimeout(() => {
     toast.classList.remove("showtoast");
-  }, 2000);
+  }, 3000);
 };
 
 export { callToast };

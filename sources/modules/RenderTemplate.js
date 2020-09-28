@@ -239,18 +239,30 @@ const enableContent = (id) => {
   document.getElementById(id).disabled = false;
 };
 
+let disableInputBtn = false;
 const showModal = (narray, nigths, total) => {
   let template = readDataLocalStorage("rooms-data");
   modalData = template[narray];
-
   if (modalData.avaiable === 0) {
     callToast("no hay habitaciones disponibles");
     let input = document.querySelectorAll("form input");
     let btnReseve = document.querySelectorAll(".btn-reserve");
     disabledContent(btnReseve[0].id);
+    btnReseve[0].classList.replace("btn-enable", "btn-disable");
     input.forEach((fields) => {
       disabledContent(fields.id);
     });
+    disableInputBtn = true;
+  } else {
+    if (disableInputBtn) {
+      let input = document.querySelectorAll("form input");
+      let btnReseve = document.querySelectorAll(".btn-reserve");
+      enableContent(btnReseve[0].id);
+      btnReseve[0].classList.replace("btn-disable", "btn-enable");
+      input.forEach((fields) => {
+        enableContent(fields.id);
+      });
+    }
   }
 
   let iconsRoom = genIcons(modalData.icons, "icons-label", modalData.include);
