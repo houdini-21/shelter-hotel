@@ -5,9 +5,7 @@ const hiddendiv = (div) => {
   const itemsnavbar = document.querySelectorAll(".div");
   for (let i = 0; i < itemsnavbar.length; i++) {
     let itemdiv = itemsnavbar[i];
-    div === itemdiv.id
-      ? (showElement(itemdiv))
-      : (hiddeElement(itemdiv));
+    div === itemdiv.id ? showElement(itemdiv) : hiddeElement(itemdiv);
   }
 };
 
@@ -31,10 +29,11 @@ const hiddeElement = (div) => {
 };
 
 const showElement = (div) => {
-  div.classList.replace("hidden", "fadeIn");
+  div.classList.remove("hidden");
 };
 
 const resetInputNights = (nArray) => {
+  console.log(numNigths);
   const inputValue = document.querySelectorAll(".nigths-input");
   const subCantNights = document.querySelectorAll(".subtitle-night");
   const roomsPrice = document.querySelectorAll(".price-night");
@@ -55,6 +54,7 @@ const CalculePrice = (nigths, nArray) => {
 
 const minusBtn = (nArray) => {
   const inputValue = document.querySelectorAll(".nigths-input");
+  console.log(numNigths);
   const subCantNights = document.querySelectorAll(".subtitle-night");
   numNigths--;
   if (numNigths < 1) {
@@ -67,6 +67,7 @@ const minusBtn = (nArray) => {
 
 const plusBtn = (nArray) => {
   const inputValue = document.querySelectorAll(".nigths-input");
+  console.log(numNigths);
   const subCantNights = document.querySelectorAll(".subtitle-night");
   numNigths++;
   CalculePrice(numNigths, nArray);

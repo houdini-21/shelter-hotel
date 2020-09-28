@@ -1,7 +1,4 @@
-import {
-  readDataLocalStorage,
-  saveDataLocalStorage,
-} from "./readSaveLocalstorage.js";
+import { readDataLocalStorage } from "./readSaveLocalstorage.js";
 import { Room, Bedrooms } from "./Rooms.js";
 import { minusBtn, plusBtn, Total } from "./BtnsFuntional.js";
 import { numNigths } from "./BtnsFuntional.js";
@@ -102,6 +99,34 @@ const renderCards = () => {
   cardsData.forEach((rooms) => {
     genCards(rooms);
   });
+
+  const btnAddDays = document.querySelectorAll("#plus");
+  const btnMinDays = document.querySelectorAll("#minus");
+  const btnAgreeRoom = document.querySelectorAll(".btn-agree");
+
+  btnAddDays.forEach((btn, nArray) => {
+    btn.addEventListener("click", () => {
+      plusBtn(nArray);
+    });
+  });
+
+  btnMinDays.forEach((btn, nArray) => {
+    btn.addEventListener("click", () => {
+      minusBtn(nArray);
+    });
+  });
+
+  btnAgreeRoom.forEach((btn, nArray) => {
+    btn.addEventListener("click", () => {
+      let sucessdiv = document.getElementById("reserve-sucess");
+      let reservesdiv = document.getElementById("reserves-data");
+      let reservebtn = document.querySelector(".btn-reserve");
+      reservebtn.id = nArray;
+      sucessdiv.classList.add("hidden");
+      reservesdiv.classList.remove("hidden");
+      showModal(nArray, numNigths, Total);
+    });
+  });
 };
 
 const cleardiv = () => {
@@ -109,6 +134,7 @@ const cleardiv = () => {
   Array.from(div.childNodes).forEach((child) => {
     div.removeChild(child);
   });
+  document.getElementById("selector").value = 0;
 };
 
 const genIcons = (icons, type, label) => {
@@ -201,35 +227,6 @@ const genCards = (data) => {
   document
     .getElementById("roomsSection")
     .insertAdjacentHTML("beforeend", templateCardRoom);
-
-  const btnAddDays = document.querySelectorAll("#plus");
-  const btnMinDays = document.querySelectorAll("#minus");
-  const btnAgreeRoom = document.querySelectorAll(".btn-agree");
-
-  btnAddDays.forEach((btn, nArray) => {
-    btn.addEventListener("click", () => {
-      plusBtn(nArray);
-    });
-  });
-
-  btnMinDays.forEach((btn, nArray) => {
-    btn.addEventListener("click", () => {
-      minusBtn(nArray);
-    });
-  });
-
-  btnAgreeRoom.forEach((btn, nArray) => {
-    btn.addEventListener("click", () => {
-      let sucessdiv = document.getElementById("reserve-sucess");
-      let reservesdiv = document.getElementById("reserves-data");
-
-      let reservebtn = document.querySelector(".btn-reserve");
-      reservebtn.id = nArray;
-      sucessdiv.classList.add("hidden");
-      reservesdiv.classList.remove("hidden");
-      showModal(nArray, numNigths, Total);
-    });
-  });
 };
 const disabledContent = (id) => {
   document.getElementById(id).disabled = true;
